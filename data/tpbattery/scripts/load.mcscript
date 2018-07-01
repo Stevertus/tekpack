@@ -1,0 +1,12 @@
+
+#file: ./load
+
+// here goes your load content
+
+
+/scoreboard objectives add tpBattMax dummy
+/scoreboard objectives add tpBattMulti dummy
+
+/scoreboard players set #15 tpE 15
+/scoreboard players set #5 tpE 5
+/scoreboard players set #100 tpE 100

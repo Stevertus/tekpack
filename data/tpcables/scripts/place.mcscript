@@ -1,0 +1,12 @@
+#file: ./place
+/scoreboard players set raycast1 mcscript_raycast 0
+/execute positioned ~ ~1.5 ~ run function tpcables:place_ray
+/*
+raycast(5,"air") {
+  if("block ^ ^ ^-0.8 air"){
+    /setblock ^ ^ ^-0.8 stone
+  }
+}, {
+   /particle flame ~ ~ ~
+}
+*/

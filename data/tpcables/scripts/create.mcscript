@@ -1,0 +1,208 @@
+#file: ./create
+align("xyz"){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpCable,tpNew,tpCableConnector],Invisible:1,Marker:1,NoGravity:1}
+}
+asat(@e[tag=tpNew,distance=..1,tag=tpCable]){
+  positioned('~1 ~ ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~-1 ~ ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~ ~-1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~ ~1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  /function tpcables:update
+  /tag @s remove tpNew
+}
+#file: ./update
+var tpCableCount @s = 0
+
+/tag @s remove tpCableS
+/tag @s remove tpCableN
+/tag @s remove tpCableW
+/tag @s remove tpCableE
+/tag @s remove tpCableU
+/tag @s remove tpCableD
+/tag @s remove tpCableEnd
+/tag @s remove tpCableEndE
+/tag @s remove tpCableEndW
+/tag @s remove tpCableEndN
+/tag @s remove tpCableEndS
+/tag @s remove tpCableEndU
+/tag @s remove tpCableEndD
+/tag @s remove tpCableStrWE
+/tag @s remove tpCableStrNS
+/tag @s remove tpCableStrUD
+/tag @s remove tpCableAlone
+/tag @s remove tpCableEnd
+/tag @s remove tpCableCorner
+/tag @s remove tpCableStraight
+/tag @s remove tpCableTInter
+/tag @s remove tpCableIntersection
+/replaceitem entity @s weapon.offhand air
+/replaceitem entity @s weapon.mainhand air
+positioned('~1 ~ ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectE,distance=..0.8]){
+  /tag @s add tpCableE
+  tpCableCount @s ++
+}
+positioned('~-1 ~ ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectW,distance=..0.8]){
+  /tag @s add tpCableW
+  tpCableCount @s ++
+}
+positioned('~ ~1 ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectU,distance=..0.8]){
+  /tag @s add tpCableU
+  tpCableCount @s ++
+}
+positioned('~ ~-1 ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectD,distance=..0.8]){
+  /tag @s add tpCableD
+  tpCableCount @s ++
+}
+positioned('~ ~ ~-1'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8]){
+  /tag @s add tpCableN
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
+  tpCableCount @s ++
+}
+positioned('~ ~ ~1'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8]){
+  /tag @s add tpCableS
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
+  tpCableCount @s ++
+}
+#tooHigh
+positioned('~1 ~1 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectE,distance=..0.8]){
+  /tag @s add tpCableE
+  tpCableCount @s ++
+}
+positioned('~-1 ~1 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectW,distance=..0.8]){
+  /tag @s add tpCableW
+  tpCableCount @s ++
+}
+positioned('~ ~2 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectU,distance=..0.8]){
+  /tag @s add tpCableU
+  tpCableCount @s ++
+}
+positioned('~ ~ ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectD,distance=0.01..0.8]){
+  /tag @s add tpCableD
+  tpCableCount @s ++
+}
+positioned('~ ~1 ~-1'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8]){
+  /tag @s add tpCableN
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
+  tpCableCount @s ++
+}
+positioned('~ ~1 ~1'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8]){
+  /tag @s add tpCableS
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
+  tpCableCount @s ++
+}
+# richtige Models laden
+if(@s[tag=tpCableN,tag=tpCableS]){
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+}
+if(@s[tag=tpCableE,tag=!tpCableW,tag=!tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:4,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=tpCableW,tag=!tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:5,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:13,Unbreakable:1}
+}
+if(@s[tag=tpCableE,tag=!tpCableW,tag=tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:7,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=tpCableW,tag=tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:6,Unbreakable:1}
+}
+if(@s[tag=tpCableE,tag=tpCableW,tag=!tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+}
+if(@s[tag=tpCableE,tag=tpCableW,tag=tpCableU]){
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:8,Unbreakable:1}
+}
+/replaceitem entity @s armor.head diamond_pickaxe{Damage:1,Unbreakable:1}
+if(@s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableStraight
+  /tag @s add tpCableStrWE
+  /setblock ~ ~ ~ minecraft:end_rod[facing=east]
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableStraight
+  /tag @s add tpCableStrNS
+  /setblock ~ ~ ~ minecraft:end_rod[facing=north]
+  /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD]){
+  /tag @s add tpCableStraight
+  /tag @s add tpCableStrUD
+  /setblock ~ ~ ~ minecraft:end_rod[facing=up]
+  /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+}
+if(tpCableCount @s == 0){
+  /tag @s add tpCableAlone
+  /setblock ~ ~ ~ minecraft:flower_pot
+  /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+}
+if(tpCableCount @s == 2 && @s[tag=!tpCableStraight]){
+  /tag @s add tpCableCorner
+  /setblock ~ ~ ~ minecraft:flower_pot
+  /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+}
+if(tpCableCount @s == 3){
+  /tag @s add tpCableTInter
+  /setblock ~ ~ ~ minecraft:flower_pot
+  /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+}
+if(tpCableCount @s == 4){
+  /tag @s add tpCableIntersection
+  /setblock ~ ~ ~ minecraft:flower_pot
+  /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+}
+/scoreboard players reset @s tpCableCount
+if(@s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndE
+  /setblock ~ ~ ~ minecraft:end_rod[facing=west]
+    /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+}
+
+if(@s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndW
+  /setblock ~ ~ ~ minecraft:end_rod[facing=east]
+    /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndN
+  /setblock ~ ~ ~ minecraft:end_rod[facing=south]
+    /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndS
+  /setblock ~ ~ ~ minecraft:end_rod[facing=north]
+    /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndU
+  /setblock ~ ~ ~ minecraft:end_rod[facing=up]
+    /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+}
+if(@s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD]){
+  /tag @s add tpCableEnd
+  /tag @s add tpCableEndD
+  /setblock ~ ~ ~ minecraft:end_rod[facing=down]
+    /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+}

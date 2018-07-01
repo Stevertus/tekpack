@@ -1,0 +1,17 @@
+#file: ./main
+/scoreboard players add #t tpTimer 1
+/scoreboard players add #tt tpTimer 1
+
+/function tpcables:main
+/function tpcraft:main
+/function tpbattery:main
+/function tpsolar:main
+/function stack:main
+
+if("score #t tpTimer matches 2.."){
+  //function tekpack:slow_clock
+  /scoreboard players reset #t tpTimer
+}
+if("score #tt tpTimer matches 200.."){
+  /scoreboard players reset #tt tpTimer
+}

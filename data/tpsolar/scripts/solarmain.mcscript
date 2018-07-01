@@ -1,0 +1,40 @@
+#file: ./solarmain
+positioned('~ ~-1 ~'),if(@e[tag=tpCable,distance=..0.8]){
+  if('block ~ ~1 ~ daylight_detector[inverted=true]'){
+    /setblock ~ ~1 ~ daylight_detector
+  }
+  if('block ~ ~1 ~ daylight_detector[power=15]'){
+    /scoreboard players add @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+  }
+
+  if(@s[tag=tpSolarNext]){
+    /scoreboard players add @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+    /tag @s remove tpSolarNext
+  }
+  if(@s[tag=tpSolarNext2]){
+    /tag @s add tpSolarNext
+    /tag @s remove tpSolarNext2
+  }
+
+  if('block ~ ~1 ~ daylight_detector[power=14]'){
+      /tag @s add tpSolarNext
+  }
+  if('block ~ ~1 ~ daylight_detector[power=13]'){
+      /tag @s add tpSolarNext
+  }
+  if('block ~ ~1 ~ daylight_detector[power=12]'){
+      /tag @s add tpSolarNext
+  }
+  if('block ~ ~1 ~ daylight_detector[power=11]'){
+      /tag @s add tpSolarNext2
+  }
+  if('block ~ ~1 ~ daylight_detector[power=10]'){
+      /tag @s add tpSolarNext2
+  }
+  if('block ~ ~1 ~ daylight_detector[power=9]'){
+      /tag @s add tpSolarNext2
+  }
+  if('block ~ ~1 ~ daylight_detector[power=8]'){
+      /tag @s add tpSolarNext2
+  }
+}

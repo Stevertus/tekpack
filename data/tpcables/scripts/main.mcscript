@@ -1,0 +1,59 @@
+
+#file: ./main
+// here goes your main content
+// executes 20 times a second
+# 1/2 sec Clock
+if("score #t tpTimer matches 2.."){
+  /function tpcables:slow_clock
+}
+# Click Event
+asat(@a[scores={tpClick=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b}}}]){
+  /tag @s add tpCablesSet
+}
+asat(@a[tag=tpCablesSet]){
+  /tag @s add tpRayFail
+
+  /function tpcables:place
+  if(@s[tag=!tpRayFail]){
+    /function stack:remove
+    /tag @s add tpCableUpdate
+  }
+  if(@s[tag=tpRayFail]){
+    /say hä
+    /tag @s remove tpRayFail
+  }
+  /scoreboard players reset @s tpClick
+  /tag @s remove tpCablesSet
+}
+# Break Event
+asat(@e[tag=tpCable]),if("block ~ ~ ~ air"){
+  /summon armor_stand ~ ~ ~ {Tags: [tpCableTemp],Invisible:1,Marker:1,NoGravity:1}
+  /kill @e[type=item,distance=..0.5,limit=1,sort=nearest]
+  //summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1,Damage:1,display:{Name:"{\"text\":\"§5Cable\"}"}}}}
+  /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§5Cable\"}",Lore:["§aTransfers energy"]}}}}
+  /kill @s
+}
+
+asat(@e[tag=tpCableTemp]){
+  positioned('~1 ~ ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~-1 ~ ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~ ~-1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~ ~1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  /kill @s
+}
+#remove !!!!
+#/scoreboard players reset @a tpClick

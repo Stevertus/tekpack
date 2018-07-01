@@ -1,0 +1,11 @@
+
+#file: ./load
+
+// here goes your load content
+/scoreboard objectives add tpCraftID dummy
+/scoreboard objectives add mcscript_raycast dummy
+/scoreboard objectives add tpCraftTake dummy
+/scoreboard objectives add tpCraftCountLow dummy
+for(1,9){
+  /scoreboard objectives add tpCraftCount$(i) dummy
+}

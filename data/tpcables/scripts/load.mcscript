@@ -1,0 +1,8 @@
+
+#file: ./load
+
+// here goes your load content
+/scoreboard objectives add tpE dummy
+/scoreboard objectives add tpTimer dummy
+/scoreboard objectives add tpCableCount dummy
+/scoreboard objectives add tpClick minecraft.used:minecraft.carrot_on_a_stick

@@ -1,0 +1,10 @@
+
+#file: ./load
+
+// here goes your load content
+/scoreboard objectives add tpEDisplay dummy
+/function tpcables:load
+/function tpcraft:load
+/function tpbattery:load
+/function tpsolar:load
+/function stack:setup

@@ -1,0 +1,47 @@
+#file: ./create
+align("xyz"){
+  /setblock ~ ~ ~ dropper[facing=up,triggered=true]
+  /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Small Battery\"}"}
+  /summon armor_stand ~0.5 ~1.4 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher],Invisible:1,Marker:1,NoGravity:1}
+}
+
+if(@s[y_rotation=-45..44.99]){
+  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
+    /tag @s add tpCableNoConnectW
+    /tag @s add tpCableNoConnectE
+  }
+}
+if(@s[y_rotation=45..134.99]){
+  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
+    /tp @s ~ ~ ~ 90 0
+    /tag @s add tpCableNoConnectN
+    /tag @s add tpCableNoConnectS
+  }
+}
+if(@s[y_rotation=135..-135.01]){
+  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
+    /tp @s ~ ~ ~ 180 0
+    /tag @s add tpCableNoConnectW
+    /tag @s add tpCableNoConnectE
+  }
+}
+if(@s[y_rotation=-135..-90]){
+  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
+    /tp @s ~ ~ ~ -90 0
+    /tag @s add tpCableNoConnectN
+    /tag @s add tpCableNoConnectS
+  }
+}
+asat(@e[tag=tpBattery,tag=tpNew]){
+  /scoreboard players set @s tpBattMulti 1
+  /scoreboard players set @s tpBattMax 15
+  /tp @s ~ ~0.1 ~
+  positioned('~ ~-1 ~'),positioned('^ ^ ^1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  positioned('~ ~-1 ~'),positioned('^ ^ ^-1'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:3}
+  /tag @s remove tpNew
+}

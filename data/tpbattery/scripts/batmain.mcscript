@@ -1,0 +1,83 @@
+#file: ./batmain
+if("score #t tpTimer matches 2.."){
+  /tag @s[tag=tpFirstPower] remove tpFirstPower
+positioned('^ ^ ^1'),if(!'score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 0..'&&'score @s tpE matches 1..'&&@e[tag=tpCable,distance=..0.8]){
+  /tag @s[tag=!tpPowered] add tpBattRemove
+}
+positioned('^ ^ ^-1'),if('score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1..'&&'score @s tpE < @s tpBattMax'){
+  /tag @s add tpBattAdd
+}
+}
+positioned('^ ^ ^-1'),if(@s[tag=tpBattAdd]){
+  /scoreboard players add @s tpE 1
+  /particle minecraft:dust 0.2 1 0.2 0.8 ~ ~ ~ 0 0.1 0 10 10
+  /execute positioned ^ ^ ^1 run function tpbattery:items
+  /scoreboard players remove @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+  /tag @s remove tpBattAdd
+}
+positioned('^ ^ ^1'),if(@s[tag=tpBattRemove]){
+  /scoreboard players add @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+  /scoreboard players remove @s tpE 1
+  /execute positioned ^ ^ ^-1 run function tpbattery:items
+  /tag @s remove tpBattRemove
+}
+if(@a[distance=..2]){
+  /execute if score @s tpEDisplay matches 0 run title @a[distance=..2] actionbar ["",{"text":"","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 1 run title @a[distance=..2] actionbar ["",{"text":"▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 2 run title @a[distance=..2] actionbar ["",{"text":"▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 3 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 4 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 5 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 6 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 7 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 8 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 9 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 10 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 11 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 12 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 13 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 14 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpEDisplay matches 15 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"green"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of ","color":"gray"},{"score":{"name":"@s","objective":"tpBattMax"},"color":"gray"},{"text":")","color":"gray"}]
+
+}
+if(@a[distance=..4]){
+  if('score @s tpEDisplay matches 1..5'){
+    /particle minecraft:dust 0 1 0 0.5 ~ ~0.5 ~ 0 0.1 0 10 1 normal @a[distance=..4]
+  }
+  if('score @s tpEDisplay matches 6..10'){
+    /particle minecraft:dust 1 1 0 0.5 ~ ~0.5 ~ 0 0.1 0 10 1 normal @a[distance=..4]
+  }
+  if('score @s tpEDisplay matches 11..15'){
+    /particle minecraft:dust 1 0 0 0.5 ~ ~0.5 ~ 0 0.1 0 10 1 normal @a[distance=..4]
+  }
+}
+
+# replaceitems if taken out
+for(0,8){
+  /execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:$(i)b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
+}
+
+if(@s[tag=tpUpdateItems]){
+  /function tpbattery:items
+  /clear @a[distance=..4] stone_hoe{Unbreakable:1b} 1
+  /tag @s remove tpUpdateItems
+}
+# upgrades
+/tag @s remove tpUpgraded
+if('block ~ ~ ~ dropper{Items:[{id:"minecraft:redstone",Slot:2b}]}'){
+  /tag @s add tpUpgraded
+}
+if(@s[tag=tpUpgraded]){
+  /execute store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].Count
+  /scoreboard players operation @s tpCraftCount3 *= #5 tpE
+
+  /scoreboard players set @s tpBattMax 15
+
+  /scoreboard players operation @s tpBattMax += @s tpCraftCount3
+}
+if(@s[tag=!tpUpgraded,scores={tpBattMax=16..}]){
+  if('score @s tpE matches 16..'){
+    /scoreboard players set @s tpE 15
+  }
+  /scoreboard players set @s tpBattMax 15
+}

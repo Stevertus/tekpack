@@ -1,0 +1,45 @@
+#file: ./powered
+if(@s[tag=tpFirstPower]){
+  /function tpbattery:items
+  positioned('~ ~0.4 ~'){
+    /kill @e[type=item,nbt={Item:{id:"minecraft:stone_hoe",tag:{Unbreakable:1b}}}]
+  }
+}
+/tag @s[tag=!tpPowered] add tpFirstPower
+/tag @s remove tpPowered
+if('block ~ ~-1 ~ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ~ ~-1 ~ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ~ ~1 ~ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ~ ~-1 ~ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+for(1,15){
+  if('block ~ ~1 ~ minecraft:redstone_wire[power=$(i)]'){
+    /tag @s add tpPowered
+  }
+}
+/tag @s[tag=!tpPowered] remove tpFirstPower

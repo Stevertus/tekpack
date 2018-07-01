@@ -1,0 +1,13 @@
+#file: ./create
+align("xyz"){
+  /setblock ~ ~ ~ daylight_detector
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpSolar,tpNew,tpCableConnector,tpCableNoConnectD,tpCableNoConnectN,tpCableNoConnectS,tpCableNoConnectW,tpCableNoConnectO],Invisible:1,Marker:1,NoGravity:1}
+}
+
+asat(@e[tag=tpSolar,tag=tpNew]){
+  positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
+    /function tpcables:update
+  }
+  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:4}
+  /tag @s remove tpNew
+}

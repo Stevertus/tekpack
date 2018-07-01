@@ -1,0 +1,13 @@
+#file: ./update_item
+
+if("score @s tpCableCount matches ..0"){
+  /clear @s minecraft:carrot_on_a_stick{Unbreakable:1,Damage:1,display:{Lore:["§aTransfers energy"]}}
+}
+for(1,63){
+  if("score @s tpCableCount matches $(i)"){
+    /replaceitem entity @s weapon.mainhand minecraft:carrot_on_a_stick{Unbreakable:1,Damage:1,display:{Name:"{\"text\":\"§5Cable($(i))\"}",Lore:["§aTransfers energy"]}}
+  }
+}
+if("score @s tpCableCount matches 64.."){
+  /replaceitem entity @s weapon.mainhand minecraft:carrot_on_a_stick{Unbreakable:1,Damage:1,display:{Name:"{\"text\":\"§5Cable(64++)\"}",Lore:["§aTransfers energy"]}}
+}

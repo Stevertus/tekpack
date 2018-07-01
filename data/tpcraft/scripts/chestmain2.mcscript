@@ -1,0 +1,162 @@
+#file: ./chestmain2
+
+if(!"block ~1 ~ ~ air"&&@e[tag=!tpCraftBlockE]){
+  /setblock ~ ~ ~ chest
+  /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Crafting\"}"}
+  /tag @s add tpCraftBlockE
+}
+if("block ~1 ~ ~ air"&&@e[tag=tpCraftBlockE]){
+  /setblock ~ ~ ~ chest
+  /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Crafting\"}"}
+  /tag @s remove tpCraftBlockE
+}
+#
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:0b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:0b}]} run replaceitem block ~ ~ ~ container.0 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:9b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:9b}]} run replaceitem block ~ ~ ~ container.9 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:18b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:18b}]} run replaceitem block ~ ~ ~ container.18 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  for(4,8){
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:$(i)b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  }
+  for(13,14){
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:$(i)b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  }
+  for(16,17){
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:$(i)b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  }
+  for(22,26){
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:gray_stained_glass_pane",Slot:$(i)b}]} run clear @a[distance=..4] minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}} 1
+    /execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"\"}"}}
+  }
+#
+# get Count
+for(1,9){
+  /scoreboard players reset @s tpCraftCount$(i)
+}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:1b}]} run replaceitem block ~ ~ ~ container.1 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:2b}]} run replaceitem block ~ ~ ~ container.2 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:3b}]} run replaceitem block ~ ~ ~ container.3 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:10b}]} run replaceitem block ~ ~ ~ container.10 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:11b}]} run replaceitem block ~ ~ ~ container.11 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:12b}]} run replaceitem block ~ ~ ~ container.12 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:15b}]} run replaceitem block ~ ~ ~ container.15 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:19b}]} run replaceitem block ~ ~ ~ container.19 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:20b}]} run replaceitem block ~ ~ ~ container.20 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:21b}]} run replaceitem block ~ ~ ~ container.21 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+# Mit item count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,tag:{Stackable:1b}}]} store result score @s tpCraftCount1 run data get block ~ ~ ~ Items[1].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,tag:{Stackable:1b}}]} store result score @s tpCraftCount2 run data get block ~ ~ ~ Items[2].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,tag:{Stackable:1b}}]} store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[3].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,tag:{Stackable:1b}}]} store result score @s tpCraftCount4 run data get block ~ ~ ~ Items[10].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,tag:{Stackable:1b}}]} store result score @s tpCraftCount5 run data get block ~ ~ ~ Items[11].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,tag:{Stackable:1b}}]} store result score @s tpCraftCount6 run data get block ~ ~ ~ Items[12].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,tag:{Stackable:1b}}]} store result score @s tpCraftCount7 run data get block ~ ~ ~ Items[19].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,tag:{Stackable:1b}}]} store result score @s tpCraftCount8 run data get block ~ ~ ~ Items[20].Count
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} unless block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,tag:{Stackable:1b}}]} store result score @s tpCraftCount9 run data get block ~ ~ ~ Items[21].Count
+# Mit Shades Stack addon
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,tag:{Stackable:1b}}]} store result score @s tpCraftCount1 run data get block ~ ~ ~ Items[1].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,tag:{Stackable:1b}}]} store result score @s tpCraftCount2 run data get block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,tag:{Stackable:1b}}]} store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[3].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,tag:{Stackable:1b}}]} store result score @s tpCraftCount4 run data get block ~ ~ ~ Items[10].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,tag:{Stackable:1b}}]} store result score @s tpCraftCount5 run data get block ~ ~ ~ Items[11].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,tag:{Stackable:1b}}]} store result score @s tpCraftCount6 run data get block ~ ~ ~ Items[12].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,tag:{Stackable:1b}}]} store result score @s tpCraftCount7 run data get block ~ ~ ~ Items[19].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,tag:{Stackable:1b}}]} store result score @s tpCraftCount8 run data get block ~ ~ ~ Items[20].tag.AttributeModifiers[0].Amount
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} if block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,tag:{Stackable:1b}}]} store result score @s tpCraftCount9 run data get block ~ ~ ~ Items[21].tag.AttributeModifiers[0].Amount
+
+# wenn Item herausgenommen wird
+/scoreboard players reset @s tpCraftTake
+if(!'block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\\"text\\":\\"placeholder\\"}"}}}]}'&&@s[tag=tpCraftSuccess]){
+  if(!'block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,tag:{Stackable:1b}}]}'){
+    /execute store result score @s tpCraftTake run data get block ~ ~ ~ Items[15].Count -1
+    /scoreboard players operation @s tpCraftTake += @s tpCraftCountLow
+  }
+}
+if('block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\\"text\\":\\"placeholder\\"}"}}}]}'&&@s[tag=tpCraftSuccess]){
+  /scoreboard players operation @s tpCraftTake = @s tpCraftCountLow
+}
+if('score @s tpCraftTake matches 1..'){
+  /say ok
+  if(@s[tag=!tpCraftNoStack]){
+    for(1,9){
+      /execute if score @s tpCraftCount$(i) matches 1.. run scoreboard players operation @s tpCraftCount$(i) -= @s tpCraftTake
+    }
+  }
+  if(@s[tag=tpCraftNoStack]){
+    for(1,9){
+      /execute if score @s tpCraftCount$(i) matches 1.. run scoreboard players remove @s tpCraftCount$(i) 1
+    }
+  }
+  /execute if score @s tpCraftCount1 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[1].Count byte 1 run scoreboard players get @s tpCraftCount1
+  /execute if score @s tpCraftCount1 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:1b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[1].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount1
+  /execute if score @s tpCraftCount1 matches ..0 run replaceitem block ~ ~ ~ container.1 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount2 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[2].Count byte 1 run scoreboard players get @s tpCraftCount2
+  /execute if score @s tpCraftCount1 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:2b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount2
+  /execute if score @s tpCraftCount2 matches ..0 run replaceitem block ~ ~ ~ container.2 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount3 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[3].Count byte 1 run scoreboard players get @s tpCraftCount3
+  /execute if score @s tpCraftCount3 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:3b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[3].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount3
+  /execute if score @s tpCraftCount3 matches ..0 run replaceitem block ~ ~ ~ container.3 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount4 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[10].Count byte 1 run scoreboard players get @s tpCraftCount4
+  /execute if score @s tpCraftCount4 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:10b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[10].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount4
+  /execute if score @s tpCraftCount4 matches ..0 run replaceitem block ~ ~ ~ container.10 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount5 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[11].Count byte 1 run scoreboard players get @s tpCraftCount5
+  /execute if score @s tpCraftCount5 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:11b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[11].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount5
+  /execute if score @s tpCraftCount5 matches ..0 run replaceitem block ~ ~ ~ container.11 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount6 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[12].Count byte 1 run scoreboard players get @s tpCraftCount6
+  /execute if score @s tpCraftCount6 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:12b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[12].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount6
+  /execute if score @s tpCraftCount6 matches ..0 run replaceitem block ~ ~ ~ container.12 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount7 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[19].Count byte 1 run scoreboard players get @s tpCraftCount7
+  /execute if score @s tpCraftCount7 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:19b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[19].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount7
+  /execute if score @s tpCraftCount7 matches ..0 run replaceitem block ~ ~ ~ container.19 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount8 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[20].Count byte 1 run scoreboard players get @s tpCraftCount8
+  /execute if score @s tpCraftCount8 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:20b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[20].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount8
+  /execute if score @s tpCraftCount8 matches ..0 run replaceitem block ~ ~ ~ container.20 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+
+  /execute if score @s tpCraftCount9 matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[21].Count byte 1 run scoreboard players get @s tpCraftCount9
+  /execute if score @s tpCraftCount9 matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:21b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[21].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCount9
+  /execute if score @s tpCraftCount9 matches ..0 run replaceitem block ~ ~ ~ container.21 minecraft:gray_stained_glass_pane{display:{Name:"{\"text\":\"placeholder\"}"}}
+  /tag @s remove tpCraftSuccess
+}
+
+/replaceitem block ~ ~ ~ container.15 air
+/tag @s remove tpCraftSuccess
+/tag @s remove tpCraftNoStack
+/function #tpcraft:recipes
+if(@s[scores={tpCraftID=1..}]){
+  /function #tpcraft:results
+}
+/scoreboard players reset @s tpCraftCountLow
+if(!'block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\\"text\\":\\"placeholder\\"}"}}}]}'&&"block ~ ~ ~ minecraft:chest{Items:[{Slot:15b}]}"){
+  /tag @s add tpCraftSuccess
+  if(@s[tag=!tpCraftNoStack]){
+    for(1,9){
+      /execute unless score @s tpCraftCountLow matches 1.. run scoreboard players operation @s tpCraftCountLow = @s tpCraftCount$(i)
+      /execute if score @s tpCraftCount$(i) matches 1.. run scoreboard players operation @s tpCraftCountLow < @s tpCraftCount$(i)
+    }
+    /execute if score @s tpCraftCountLow matches 1.. unless block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[15].Count byte 1 run scoreboard players get @s tpCraftCountLow
+    /execute if score @s tpCraftCountLow matches 1.. if block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,tag:{Stackable:1b}}]} store result block ~ ~ ~ Items[15].tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @s tpCraftCountLow
+  }
+}
+for(1,3){
+  /execute if block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} run replaceitem block ~ ~ ~ container.$(i) air
+}
+for(10,12){
+  /execute if block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} run replaceitem block ~ ~ ~ container.$(i) air
+}
+/execute if block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} run replaceitem block ~ ~ ~ container.15 air
+for(19,21){
+  /execute if block ~ ~ ~ minecraft:chest{Items:[{Slot:$(i)b,id:"minecraft:gray_stained_glass_pane",tag:{display:{Name:"{\"text\":\"placeholder\"}"}}}]} run replaceitem block ~ ~ ~ container.$(i) air
+}
+/scoreboard players reset @s tpCraftID
