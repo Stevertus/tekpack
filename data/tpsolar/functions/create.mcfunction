@@ -6,6 +6,6 @@
 ######
 execute align xyz run setblock ~ ~ ~ daylight_detector
 execute align xyz run summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpSolar,tpNew,tpCableConnector,tpCableNoConnectD,tpCableNoConnectN,tpCableNoConnectS,tpCableNoConnectW,tpCableNoConnectO],Invisible:1,Marker:1,NoGravity:1}
-execute as @e[tag=tpSolar,tag=tpNew] at @s run execute positioned ~ ~-1 ~ as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update
+execute as @e[tag=tpSolar,tag=tpNew] at @s positioned ~ ~-1 ~ as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update
 execute as @e[tag=tpSolar,tag=tpNew] at @s run replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:4}
 execute as @e[tag=tpSolar,tag=tpNew] at @s run tag @s remove tpNew

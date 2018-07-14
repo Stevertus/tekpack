@@ -1,0 +1,36 @@
+#file: ./main
+asat(@e[tag=tpBreaker]){
+    // break event
+    if("block ~ ~ ~ air"){
+      /tag @s remove tpCableConnector
+      asat(@e[tag=tpCable,distance=..1.1]){
+        /function tpcables:update
+      }
+      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1b,Damage:5,HideFlags:6,display:{Name:"{\"text\":\"§5Block Breaker\"}"}}}}
+      /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:quartz_stairs"}}]
+      /kill @s
+    }
+    /scoreboard players add @s tpTimer 1
+    /function tpbreaker:powered
+    /function tpbreaker:breakmain
+    if("score @s tpTimer matches 100.."){
+        /scoreboard players reset @s tpTimer
+    }
+}
+
+
+asat(@a[scores={tpClick=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1b,HideFlags:6,Damage:5}}}]){
+  /tag @s add tpRayFail
+  /function tpbreaker:place
+  if(@s[tag=!tpRayFail]){
+    /tag @s add tpRaySuccess
+  }
+  if(@s[tag=tpRayFail]){
+    /tag @s remove tpRayFail
+  }
+  /scoreboard players reset @s tpClick
+}
+as(@a[tag=tpRaySuccess]){
+  /replaceitem entity @s weapon.mainhand air
+  /tag @s remove tpRaySuccess
+}

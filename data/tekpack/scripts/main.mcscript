@@ -6,6 +6,8 @@
 /function tpcraft:main
 /function tpbattery:main
 /function tpsolar:main
+/function tpbreaker:main
+/function tpfurn:main
 /function stack:main
 
 if("score #t tpTimer matches 2.."){

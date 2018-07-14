@@ -10,6 +10,8 @@ function tpcables:main
 function tpcraft:main
 function tpbattery:main
 function tpsolar:main
+function tpbreaker:main
+function tpfurn:main
 function stack:main
 execute if score #t tpTimer matches 2.. run scoreboard players reset #t tpTimer
 

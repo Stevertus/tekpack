@@ -25,7 +25,7 @@ asat(@e[tag=tpNew,distance=..1,tag=tpCable]){
   /tag @s remove tpNew
 }
 #file: ./update
-var tpCableCount @s = 0
+/scoreboard players set @s tpCableCount 0
 
 /tag @s remove tpCableS
 /tag @s remove tpCableN
@@ -53,56 +53,56 @@ var tpCableCount @s = 0
 /replaceitem entity @s weapon.mainhand air
 positioned('~1 ~ ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectE,distance=..0.8]){
   /tag @s add tpCableE
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~-1 ~ ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectW,distance=..0.8]){
   /tag @s add tpCableW
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~1 ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectU,distance=..0.8]){
   /tag @s add tpCableU
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~-1 ~'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectD,distance=..0.8]){
   /tag @s add tpCableD
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~ ~-1'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8]){
   /tag @s add tpCableN
   /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~ ~1'),if(@e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8]){
   /tag @s add tpCableS
   /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 #tooHigh
 positioned('~1 ~1 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectE,distance=..0.8]){
   /tag @s add tpCableE
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~-1 ~1 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectW,distance=..0.8]){
   /tag @s add tpCableW
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~2 ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectU,distance=..0.8]){
   /tag @s add tpCableU
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~ ~'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectD,distance=0.01..0.8]){
   /tag @s add tpCableD
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~1 ~-1'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8]){
   /tag @s add tpCableN
   /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 positioned('~ ~1 ~1'),if(@e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8]){
   /tag @s add tpCableS
   /replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
-  tpCableCount @s ++
+  /scoreboard players add @s tpCableCount 1
 }
 # richtige Models laden
 if(@s[tag=tpCableN,tag=tpCableS]){
@@ -148,22 +148,25 @@ if(@s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=t
   /setblock ~ ~ ~ minecraft:end_rod[facing=up]
   /replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
 }
-if(tpCableCount @s == 0){
+//tellraw @a [{"score":{"name":"@s","objective":"tpCableCount"}}]
+
+
+if("score @s tpCableCount matches 0"){
   /tag @s add tpCableAlone
   /setblock ~ ~ ~ minecraft:flower_pot
   /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
 }
-if(tpCableCount @s == 2 && @s[tag=!tpCableStraight]){
+if("score @s tpCableCount matches 2" && @s[tag=!tpCableStraight]){
   /tag @s add tpCableCorner
   /setblock ~ ~ ~ minecraft:flower_pot
   /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
 }
-if(tpCableCount @s == 3){
+if("score @s tpCableCount matches 3"){
   /tag @s add tpCableTInter
   /setblock ~ ~ ~ minecraft:flower_pot
   /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
 }
-if(tpCableCount @s == 4){
+if("score @s tpCableCount matches 4"){
   /tag @s add tpCableIntersection
   /setblock ~ ~ ~ minecraft:flower_pot
   /replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}

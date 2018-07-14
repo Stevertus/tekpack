@@ -10,6 +10,7 @@ asat(@e[tag=tpSolar]){
       }
 
       /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:102s,Unbreakable:1b,Damage:4,HideFlags:4,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§5Solar Panel\"}"}}}}
+      /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:daylight_detector"}}]
       /kill @s
     }
   }

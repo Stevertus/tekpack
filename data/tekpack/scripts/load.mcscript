@@ -7,4 +7,6 @@
 /function tpcraft:load
 /function tpbattery:load
 /function tpsolar:load
+/function tpbreaker:load
+/function tpfurn:load
 /function stack:setup

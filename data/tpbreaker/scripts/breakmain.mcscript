@@ -1,0 +1,46 @@
+#file: ./breakmain
+if("score #t tpTimer matches 2.."){
+  /tag @s[tag=tpFirstPower] remove tpFirstPower
+if('score @e[tag=tpCable,distance=..1.1,limit=1] tpE matches 1..'&&'score @s tpE matches ..14'){
+  /tag @s add tpBreakAdd
+}
+}
+if(@s[tag=tpBreakAdd]){
+  /scoreboard players add @s tpE 1
+  /particle minecraft:dust 0.2 1 0.2 0.8 ~ ~ ~ 0 0.1 0 10 10
+  /scoreboard players reset @e[tag=tpCable,distance=..1.1,limit=1,scores={tpE=1}] tpE
+  /scoreboard players remove @e[tag=tpCable,distance=..1.1,limit=1,scores={tpE=2..}] tpE 1
+  /tag @s remove tpBreakAdd
+}
+positioned("^ ^ ^1"),if(@s[tag=!tpPowered] "score @s tpTimer matches 100.."&&"score @s tpE matches 5.."){
+  if(!"block ~ ~ ~ #tpbreaker:undestroy"){
+    /tag @s add tpBreakRemove
+  }
+  if("block ~ ~ ~ minecraft:wheat[age=7]"||"block ~ ~ ~ minecraft:carrots[age=7]"||"block ~ ~ ~ minecraft:potatoes[age=7]"||"block ~ ~ ~ minecraft:beetroots[age=3]"){
+    /tag @s add tpBreakRemove
+  }
+}
+
+if(@s[tag=tpBreakRemove]){
+  /setblock ^ ^ ^1 air destroy
+  /scoreboard players remove @s tpE 5
+  /tag @s remove tpBreakRemove
+}
+if(@a[distance=..2]){
+  /execute if score @s tpE matches 0 run title @a[distance=..2] actionbar ["",{"text":"","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 1 run title @a[distance=..2] actionbar ["",{"text":"▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 2 run title @a[distance=..2] actionbar ["",{"text":"▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 3 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 4 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 5 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 6 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 7 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 8 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 9 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 10 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 11 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 12 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 13 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 14 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+  /execute if score @s tpE matches 15 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"green"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":")","color":"gray"}]
+}
