@@ -13,4 +13,7 @@ function tpbattery:load
 function tpsolar:load
 function tpbreaker:load
 function tpfurn:load
+function tphopper:load
+function tpdrill:load
+function tpgen:load
 function stack:setup

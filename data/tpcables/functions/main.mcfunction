@@ -20,7 +20,7 @@ execute as @a[tag=tpCablesSet] at @s run tag @s remove tpCablesSet
 # Break Event
 execute as @e[tag=tpCable] at @s if block ~ ~ ~ air run summon armor_stand ~ ~ ~ {Tags: [tpCableTemp],Invisible:1,Marker:1,NoGravity:1}
 execute as @e[tag=tpCable] at @s if block ~ ~ ~ air run kill @e[type=item,distance=..0.5,limit=1,sort=nearest]
-execute as @e[tag=tpCable] at @s if block ~ ~ ~ air run summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§5Cable\"}",Lore:["§aTransfers energy"]}}}}
+execute as @e[tag=tpCable] at @s if block ~ ~ ~ air run summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§aCable\"}",Lore:["§aTransfers energy"]}}}}
 execute as @e[tag=tpCable] at @s if block ~ ~ ~ air run kill @s
 execute as @e[tag=tpCableTemp] at @s positioned ~1 ~ ~ as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update
 execute as @e[tag=tpCableTemp] at @s positioned ~-1 ~ ~ as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update

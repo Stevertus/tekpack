@@ -14,8 +14,8 @@ execute if entity @s[y_rotation=45..134.99] as @e[tag=tpBreaker,tag=tpNew,distan
 execute if entity @s[y_rotation=135..-135.01] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ 180 0
 execute if entity @s[y_rotation=135..-135.01] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectS
 
-execute if entity @s[y_rotation=-135..-90] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ -90 0
-execute if entity @s[y_rotation=-135..-90] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectW
+execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ -90 0
+execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectW
 
 execute as @e[tag=tpBreaker,tag=tpNew] at @s run scoreboard players set @s tpE 0
 execute as @e[tag=tpBreaker,tag=tpNew] at @s run tp @s ~ ~0.1 ~

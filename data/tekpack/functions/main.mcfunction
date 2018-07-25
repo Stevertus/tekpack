@@ -12,6 +12,9 @@ function tpbattery:main
 function tpsolar:main
 function tpbreaker:main
 function tpfurn:main
+function tphopper:main
+function tpdrill:main
+function tpgen:main
 function stack:main
 execute if score #t tpTimer matches 2.. run scoreboard players reset #t tpTimer
 

@@ -1,0 +1,28 @@
+#file: ./hoppermain
+if("score #t tpTimer matches 2.."){
+  /tag @s[tag=tpFirstPower] remove tpFirstPower
+if('score @e[tag=tpCable,distance=..1.1,limit=1] tpE matches 1..'&&'score @s tpE matches ..4'){
+  /tag @s add tpBreakAdd
+}
+if(@a[distance=..5] 'score @s[tag=!tpPowered] tpE matches 1..'){
+  /particle minecraft:entity_effect ~ ~ ~ 0.5 0.1 0.5 20 1
+}
+}
+if(@s[tag=tpBreakAdd]){
+  /scoreboard players add @s tpE 1
+  /scoreboard players reset @e[tag=tpCable,distance=..1.1,limit=1,scores={tpE=1}] tpE
+  /scoreboard players remove @e[tag=tpCable,distance=..1.1,limit=1,scores={tpE=2..}] tpE 1
+  /tag @s remove tpBreakAdd
+}
+if(@s[tag=!tpPowered] "score @s tpE matches 1.."&&@e[type=item,distance=..4,tag=!tpHopperAttract]){
+  /scoreboard players remove @s tpE 1
+  /particle minecraft:instant_effect ~ ~1 ~
+
+  as(@e[type=item,distance=..4,limit=1,sort=random]){
+    /tag @s add tpHopperAttractNew
+    /tag @s add tpHopperAttract
+  }
+}
+if(@e[type=item,tag=tpHopperAttract,distance=..0.7]){
+  /tp @e[type=item,tag=tpHopperAttract,distance=..0.7] ~ ~0.5 ~
+}

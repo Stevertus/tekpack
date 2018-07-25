@@ -6,10 +6,10 @@ execute at @a run tag @e[type=item,nbt={Item:{tag:{Stackable:1b}}},tag=!counted,
 
 execute at @a as @e[distance=..6,type=item,nbt={Item:{tag:{Stackable:1b}}}] run data merge entity @s {PickupDelay:10s}
 
-execute at @a as @e[sort=nearest,type=item,tag=counted,distance=..0.5,scores={Ipickup=1..},limit=1,tag=picked] run scoreboard players remove @s Ipickup 1
-execute as @a at @s unless entity @e[tag=picked,distance=..0.5] run tag @e[sort=random,type=item,tag=counted,distance=..0.5,limit=1] add picked
-execute as @a at @s unless entity @e[tag=picking,distance=..0.5] run tag @e[sort=random,type=item,tag=counted,tag=picked,distance=..0.5,limit=1,scores={Ipickup=0}] add picking
-execute as @a at @s if entity @e[sort=nearest,type=item,distance=..0.5,scores={Ipickup=0},limit=1,tag=picking] run function stack:pickups
+execute at @a as @e[sort=nearest,type=item,tag=counted,distance=..1,scores={Ipickup=1..},limit=1,tag=picked] run scoreboard players remove @s Ipickup 1
+execute as @a at @s unless entity @e[tag=picked,distance=..1] run tag @e[sort=random,type=item,tag=counted,distance=..1,limit=1] add picked
+execute as @a at @s unless entity @e[tag=picking,distance=..1] run tag @e[sort=random,type=item,tag=counted,tag=picked,distance=..1,limit=1,scores={Ipickup=0}] add picking
+execute as @a at @s if entity @e[sort=nearest,type=item,distance=..1,scores={Ipickup=0},limit=1,tag=picking] run function stack:pickups
 
 execute at @a run scoreboard players add @e[type=item,tag=counted,distance=1..10,scores={Ipickup=..0}] Ipickup 1
 
@@ -25,9 +25,3 @@ scoreboard players set @a[scores={Isneak=1..}] Isneak 0
 execute as @a store result score @s Iid run data get entity @s SelectedItem.tag.id
 
 scoreboard players remove @a[scores={splitdown=1..}] splitdown 1
-
-
-
-
-
-

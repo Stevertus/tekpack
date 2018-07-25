@@ -13,6 +13,7 @@ positioned('^ ^ ^-1'),if(@s[tag=tpBattAdd]){
   /particle minecraft:dust 0.2 1 0.2 0.8 ~ ~ ~ 0 0.1 0 10 10
   /execute positioned ^ ^ ^1 run function tpbattery:items
   /scoreboard players remove @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+  /scoreboard players reset @e[tag=tpCable,distance=..0.8,scores={tpE=..0}] tpE
   /tag @s remove tpBattAdd
 }
 positioned('^ ^ ^1'),if(@s[tag=tpBattRemove]){
@@ -54,21 +55,21 @@ if(@a[distance=..4]){
 
 # replaceitems if taken out
 for(0,8){
-  /execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:$(i)b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
+  /execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:$(i)b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
 }
 
 if(@s[tag=tpUpdateItems]){
   /function tpbattery:items
-  /clear @a[distance=..4] stone_hoe{Unbreakable:1b} 1
+  /clear @a[distance=..4] stone_hoe{Unbreakable:1b,display:{Name:"{\"text\":\"\"}"},battDisplay:1b} 1
   /tag @s remove tpUpdateItems
 }
 # upgrades
 /tag @s remove tpUpgraded
-if('block ~ ~ ~ dropper{Items:[{id:"minecraft:redstone",Slot:2b}]}'){
+if('block ~ ~ ~ dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b,Damage:6,Stackable:1b}}]}'){
   /tag @s add tpUpgraded
 }
 if(@s[tag=tpUpgraded]){
-  /execute store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].Count
+  /execute store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount
   /scoreboard players operation @s tpCraftCount3 *= #5 tpE
 
   /scoreboard players set @s tpBattMax 15

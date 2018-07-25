@@ -29,8 +29,8 @@ asat(@a[tag=tpCablesSet]){
 asat(@e[tag=tpCable]),if("block ~ ~ ~ air"){
   /summon armor_stand ~ ~ ~ {Tags: [tpCableTemp],Invisible:1,Marker:1,NoGravity:1}
   /kill @e[type=item,distance=..0.5,limit=1,sort=nearest]
-  //summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1,Damage:1,display:{Name:"{\"text\":\"§5Cable\"}"}}}}
-  /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§5Cable\"}",Lore:["§aTransfers energy"]}}}}
+  //summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1,Damage:1,display:{Name:"{\"text\":\"§aCable\"}"}}}}
+  /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:101s,Unbreakable:1b,HideFlags:4,Damage:1,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§aCable\"}",Lore:["§aTransfers energy"]}}}}
   /kill @s
 }
 

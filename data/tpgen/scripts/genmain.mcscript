@@ -1,0 +1,19 @@
+#file: ./genmain
+if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",Slot:0b}]}'){
+  /clear @a[distance=..4] iron_pickaxe{Unbreakable:1b,fromGen:1b}
+  /replaceitem block ~ ~ ~ container.0 iron_pickaxe{Unbreakable:1b,fromGen:1b,Damage:3,HideFlags:6,display:{Name:"{\"text\":\"\"}"}}
+}
+if('block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_nugget",Slot:2b}]}'){
+  /scoreboard players add @s[scores={tpE=..14}] tpE 1
+  /replaceitem block ~ ~ ~ container.2 air
+}
+if("score #t tpTimer matches 2.."){
+  if(!'score @e[tag=tpCable,distance=..1.1,limit=1] tpE matches 0..'&&'score @s tpE matches 1..'&&@e[tag=tpCable,distance=..1.1]){
+    /tag @s[tag=!tpPowered] add tpBattRemove
+  }
+}
+if(@s[tag=tpBattRemove]){
+  /scoreboard players add @e[tag=tpCable,distance=..1.1,limit=1,sort=random] tpE 1
+  /scoreboard players remove @s tpE 1
+  /tag @s remove tpBattRemove
+}

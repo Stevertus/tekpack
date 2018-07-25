@@ -1,0 +1,17 @@
+/tag @s remove tpDrillDigDown
+/tag @s remove tpDrillDigEnd
+positioned("~ ~-1 ~"),if(!"entity @e[tag=tpDrillPipe,distance=..0.8]"&&"block ~ ~ ~ air"){
+  /tag @s add tpDrillDigDown
+}
+if(!"block ~ ~-1 ~ air"){
+  /tag @s add tpDrillDigEnd
+}
+if(@s[tag=tpDrillDigDown]){
+  /tag @e[tag=tpDrillPipeEnd,distance=..8] remove tpDrillPipeEnd
+  /summon armor_stand ~ ~-1 ~ {Tags: [tpDrillPipe,tpDrillPipeEnd],Invisible:1,NoGravity:1,Small:1b,Invulnerable:1}
+  /execute positioned ~ ~-1 ~ run replaceitem entity @e[tag=tpDrillPipe] armor.head iron_pickaxe{Unbreakable:1b,Damage:2}
+} else if(@s[tag=!tpDrillDigEnd]) {
+  positioned("~ ~-1 ~") {
+    /function tpdrill:godown
+  }
+}

@@ -22,7 +22,7 @@ if(@s[y_rotation=135..-135.01]){
     /tag @s add tpCableNoConnectS
   }
 }
-if(@s[y_rotation=-135..-90]){
+if(@s[y_rotation=-135..-45]){
   asat(@e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1]){
     /tp @s ~ ~ ~ -90 0
     /tag @s add tpCableNoConnectW

@@ -1,7 +1,7 @@
 #file: ./create
 align("xyz"){
   /setblock ~ ~ ~ dropper[facing=up,triggered=true]
-  /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Small Battery\"}"}
+  /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Battery\"}"}
   /summon armor_stand ~0.5 ~1.4 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher],Invisible:1,Marker:1,NoGravity:1}
 }
 
@@ -25,7 +25,7 @@ if(@s[y_rotation=135..-135.01]){
     /tag @s add tpCableNoConnectE
   }
 }
-if(@s[y_rotation=-135..-90]){
+if(@s[y_rotation=-135..-45]){
   asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
     /tp @s ~ ~ ~ -90 0
     /tag @s add tpCableNoConnectN

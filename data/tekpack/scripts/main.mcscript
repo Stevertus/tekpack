@@ -8,6 +8,9 @@
 /function tpsolar:main
 /function tpbreaker:main
 /function tpfurn:main
+/function tphopper:main
+/function tpdrill:main
+/function tpgen:main
 /function stack:main
 
 if("score #t tpTimer matches 2.."){

@@ -12,6 +12,7 @@ execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] run scoreboard players ad
 execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] run particle minecraft:dust 0.2 1 0.2 0.8 ~ ~ ~ 0 0.1 0 10 10
 execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] positioned ^ ^ ^1 run function tpbattery:items
 execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] run scoreboard players remove @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] run scoreboard players reset @e[tag=tpCable,distance=..0.8,scores={tpE=..0}] tpE
 execute positioned ^ ^ ^-1 if entity @s[tag=tpBattAdd] run tag @s remove tpBattAdd
 execute positioned ^ ^ ^1 if entity @s[tag=tpBattRemove] run scoreboard players add @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
 execute positioned ^ ^ ^1 if entity @s[tag=tpBattRemove] run scoreboard players remove @s tpE 1
@@ -39,24 +40,24 @@ execute if entity @a[distance=..4] if score @s tpEDisplay matches 6..10 run part
 execute if entity @a[distance=..4] if score @s tpEDisplay matches 11..15 run particle minecraft:dust 1 0 0 0.5 ~ ~0.5 ~ 0 0.1 0 10 1 normal @a[distance=..4]
 
 # replaceitems if taken out
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:0b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:1b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:3b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:4b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:5b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:6b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:7b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
-execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:8b,tag:{Unbreakable:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:0b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:1b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:3b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:4b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:5b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:6b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:7b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
+execute unless block ~ ~ ~ minecraft:dropper{Items:[{id:"minecraft:stone_hoe",Slot:8b,tag:{Unbreakable:1b,battDisplay:1b}}]} run tag @s add tpUpdateItems
 execute if entity @s[tag=tpUpdateItems] run function tpbattery:items
-execute if entity @s[tag=tpUpdateItems] run clear @a[distance=..4] stone_hoe{Unbreakable:1b} 1
+execute if entity @s[tag=tpUpdateItems] run clear @a[distance=..4] stone_hoe{Unbreakable:1b,display:{Name:"{\"text\":\"\"}"},battDisplay:1b} 1
 execute if entity @s[tag=tpUpdateItems] run tag @s remove tpUpdateItems
 
 # upgrades
 tag @s remove tpUpgraded
-execute if block ~ ~ ~ dropper{Items:[{id:"minecraft:redstone",Slot:2b}]} run tag @s add tpUpgraded
+execute if block ~ ~ ~ dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b,Damage:6,Stackable:1b}}]} run tag @s add tpUpgraded
 
-execute if entity @s[tag=tpUpgraded] store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].Count
+execute if entity @s[tag=tpUpgraded] store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount
 execute if entity @s[tag=tpUpgraded] run scoreboard players operation @s tpCraftCount3 *= #5 tpE
 execute if entity @s[tag=tpUpgraded] run scoreboard players set @s tpBattMax 15
 execute if entity @s[tag=tpUpgraded] run scoreboard players operation @s tpBattMax += @s tpCraftCount3

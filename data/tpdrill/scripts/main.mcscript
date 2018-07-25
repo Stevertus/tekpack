@@ -1,0 +1,43 @@
+#file: ./main
+asat(@e[tag=tpDrill]){
+    // break event
+    if("block ~ ~ ~ air","block ~ ~-1 ~ air"){
+      /tag @s add tpBroken
+    }
+    if(@s[tag=tpBroken]){
+      /tag @s remove tpCableConnector
+      asat(@e[tag=tpCable,distance=..1.1]){
+        /function tpcables:update
+      }
+      /execute unless block ~ ~-1 ~ #tpdrill:undestroy run fill ~ ~1 ~ ~ ~-1 ~ air destroy
+      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1b,Damage:8,HideFlags:6,display:{Name:"{\"text\":\"§5Drill\"}"}}}}
+      /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:stone_brick_stairs"}}]
+      /execute positioned ~ ~-1 ~ run kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:end_rod"}}]
+      /execute positioned ~-0.5 ~ ~-0.5 run kill @e[tag=tpDrillPipe,dx=1,dz=1,y=0,dy=256]
+      /kill @s
+      /tag @s remove tpBroken
+    }
+    /scoreboard players add @s tpTimer 1
+    /function tpdrill:powered
+    /function tpdrill:drillmain
+    if("score @s tpTimer matches 40.."){
+        /scoreboard players reset @s tpTimer
+    }
+}
+
+
+asat(@a[scores={tpClick=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1b,HideFlags:6,Damage:8}}}]){
+  /tag @s add tpRayFail
+  /function tpdrill:place
+  if(@s[tag=!tpRayFail]){
+    /tag @s add tpRaySuccess
+  }
+  if(@s[tag=tpRayFail]){
+    /tag @s remove tpRayFail
+  }
+  /scoreboard players reset @s tpClick
+}
+as(@a[tag=tpRaySuccess]){
+  /replaceitem entity @s weapon.mainhand air
+  /tag @s remove tpRaySuccess
+}

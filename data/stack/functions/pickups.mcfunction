@@ -42,14 +42,14 @@ execute as @s[scores={inv=34..}] run function stack:pickup34
 execute as @s[scores={inv=35..}] run function stack:pickup35
 execute as @s[scores={inv=36}] run function stack:pickup36
 
-execute as @s[scores={inv=..35}] store result score @s stackId run data get entity @e[type=item,tag=picking,distance=..0.5,limit=1] Item.tag.id 1
-execute as @s[scores={inv=..35}] if entity @e[type=item,tag=picking,distance=..0.5] run function stack:config/ids
-execute as @s[scores={inv=..35}] store result score @e[type=item,tag=picking,distance=..0.5] Iamount run data get entity @e[type=item,tag=picking,distance=..0.5,limit=1] Item.tag.AttributeModifiers[0].Amount 1
-execute as @s[scores={inv=..35}] run scoreboard players remove @e[type=item,tag=picking,distance=..0.5] Iamount 1
-execute as @s[scores={inv=..35}] store result entity @e[type=item,tag=picking,distance=..0.5,limit=1] Item.tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @e[type=item,tag=picking,distance=..0.5,limit=1] Iamount
-execute as @s[scores={inv=..35}] run kill @e[type=item,tag=picking,distance=..0.5,scores={Iamount=0}]
+execute as @s[scores={inv=..35}] store result score @s stackId run data get entity @e[type=item,tag=picking,distance=..10,limit=1] Item.tag.id 1
+execute as @s[scores={inv=..35}] if entity @e[type=item,tag=picking,distance=..10] run function stack:config/ids
+execute as @s[scores={inv=..35}] store result score @e[type=item,tag=picking,distance=..10] Iamount run data get entity @e[type=item,tag=picking,distance=..10,limit=1] Item.tag.AttributeModifiers[0].Amount 1
+execute as @s[scores={inv=..35}] run scoreboard players remove @e[type=item,tag=picking,distance=..10] Iamount 1
+execute as @s[scores={inv=..35}] store result entity @e[type=item,tag=picking,distance=..10,limit=1] Item.tag.AttributeModifiers[0].Amount int 1 run scoreboard players get @e[type=item,tag=picking,distance=..10,limit=1] Iamount
+execute as @s[scores={inv=..35}] run kill @e[type=item,tag=picking,distance=..10,scores={Iamount=0}]
 
-execute unless entity @e[tag=picking,sort=nearest,distance=..0.5] run playsound minecraft:ui.button.click ambient @s ~ ~ ~ 0.1 1
+execute unless entity @e[tag=picking,sort=nearest,distance=..10] run playsound minecraft:ui.button.click ambient @s ~ ~ ~ 0.1 1
 
-tag @e[type=item,distance=..0.5,tag=picking] remove counted
-tag @e[type=item,distance=..0.5,tag=picking] remove picking
+tag @e[type=item,distance=..10,tag=picking] remove counted
+tag @e[type=item,distance=..10,tag=picking] remove picking

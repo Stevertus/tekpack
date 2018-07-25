@@ -1,0 +1,8 @@
+
+#file: ./load
+
+// here goes your load content
+/scoreboard objectives add tpDrillZ dummy
+/scoreboard objectives add tpDrillTempZ dummy
+/scoreboard objectives add tpDrillX dummy
+/scoreboard objectives add tpDrillTempX dummy

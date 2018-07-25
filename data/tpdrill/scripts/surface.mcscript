@@ -1,0 +1,39 @@
+if(@s[tag=!tpDrillSurfaceFinished]){
+  /scoreboard players operation @s tpDrillTempX = @s tpDrillX
+  /scoreboard players operation @s tpDrillTempZ = @s tpDrillZ
+  /function tpdrill:surface_x
+}
+/scoreboard players add @s tpDrillX 1
+
+if("score @s tpDrillX matches 7.."){
+  /scoreboard players add @s tpDrillZ 1
+  /scoreboard players set @s tpDrillX 0
+}
+if("score @s tpDrillZ matches 7.."){
+  /scoreboard players set @s tpDrillX 0
+  /tag @s add tpDrillSurfaceFinished
+  /scoreboard players set @s tpDrillZ 0
+}
+#file: ./surface_x
+if("score @s tpDrillTempX matches ..0"){
+  /function tpdrill:surface_z
+}
+/scoreboard players remove @s tpDrillTempX 1
+
+if("score @s tpDrillTempZ matches 0.."){
+  /execute positioned ~1 ~ ~ run function tpdrill:surface_x
+}
+#file: ./surface_z
+if("score @s tpDrillTempZ matches ..0"){
+  /function tpdrill:surface_break
+}
+/scoreboard players remove @s tpDrillTempZ 1
+if("score @s tpDrillTempZ matches 0.."){
+  /execute positioned ~ ~ ~1 run function tpdrill:surface_z
+}
+#file: ./surface_break
+/execute if block ~ ~ ~ #tpdrill:undestroy_air run scoreboard players add @s[scores={tpE=0..}] tpE 1
+/execute if block ~ ~ ~ #tpdrill:undestroy run tag @s add tpDrillStopped
+/execute unless block ~ ~ ~ #tpdrill:undestroy_air run setblock ~ ~ ~ air destroy
+/execute as @e[type=item,distance=..1] run data merge entity @s {Item:{tag:{tpDrill:1b}}}
+/tp @e[type=item,distance=..1] @s
