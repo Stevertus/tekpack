@@ -135,13 +135,15 @@ if('score @s tpCraftTake matches 1..'){
   /tag @s remove tpCraftSuccess
 }
 
-/replaceitem block ~ ~ ~ container.15 air
 /tag @s remove tpCraftSuccess
 /tag @s remove tpCraftNoStack
 /function #tpcraft:recipes
-if(@s[scores={tpCraftID=1..}]){
-  /function #tpcraft:results
-}
+  if(@s[scores={tpCraftID=1..}]){
+    /function #tpcraft:results
+  } else {
+    /replaceitem block ~ ~ ~ container.15 air
+  }
+
 /scoreboard players reset @s tpCraftCountLow
 if(!'block ~ ~ ~ minecraft:chest{Items:[{Slot:15b,id:"minecraft:light_gray_stained_glass_pane",tag:{display:{Name:"{\\"text\\":\\"placeholder\\"}"}}}]}'&&"block ~ ~ ~ minecraft:chest{Items:[{Slot:15b}]}"){
   /tag @s add tpCraftSuccess

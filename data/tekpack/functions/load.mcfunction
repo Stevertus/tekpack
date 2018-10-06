@@ -16,4 +16,6 @@ function tpfurn:load
 function tphopper:load
 function tpdrill:load
 function tpgen:load
+function tpairmill:load
+function tpwatmill:load
 function stack:setup

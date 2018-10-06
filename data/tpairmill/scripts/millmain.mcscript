@@ -1,0 +1,51 @@
+#file: ./millmain
+if("score #t tpTimer matches 2.."){
+  positioned('~ ~-1 ~'),if(!'score @e[tag=tpCable,distance=..0.5,limit=1] tpE matches 0..'&&'score @s tpE matches 1..'&&@e[tag=tpCable,distance=..0.5]){
+    /tag @s[tag=!tpPowered] add tpMillRemove
+  }
+  positioned('~ ~-1 ~'),if('score @e[tag=tpAirMill,distance=..0.3,limit=1,sort=nearest] tpE matches ..14'&&'score @s tpE matches 1..'&&@e[tag=tpAirMill,distance=..0.3]){
+    /tag @s[tag=!tpPowered] add tpMillRemove
+  }
+}
+positioned('~ ~-1 ~'),if(@s[tag=tpMillRemove]){
+  /scoreboard players add @e[tag=tpCable,distance=..0.5,limit=1,sort=random] tpE 1
+  /scoreboard players add @e[tag=tpAirMill,distance=..0.3,limit=1,sort=nearest] tpE 1
+  /scoreboard players remove @s tpE 1
+  /tag @s remove tpMillRemove
+}
+if(@s[tag=!tpPowered]){
+  positioned('~ ~-0.67 ~'),asat(@e[tag=tpMillBlade,distance=..0.4]){
+  /scoreboard players operation @s tpE += @s tpMillY
+  /scoreboard players set @s[scores={tpE=720..}] tpE 0
+  /execute store result entity @s Pose.RightArm[0] float 0.5 run scoreboard players get @s tpE
+}
+}
+
+/execute if entity @s[scores={tpMillY=80..,tpTimer=140..}] run tag @s add tpMillAdd
+/execute if entity @s[scores={tpMillY=60..79,tpTimer=200..}] run tag @s add tpMillAdd
+/execute if entity @s[scores={tpMillY=40..59,tpTimer=300..}] run tag @s add tpMillAdd
+/execute if entity @s[scores={tpMillY=20..39,tpTimer=400..}] run tag @s add tpMillAdd
+/execute if entity @s[scores={tpMillY=5..19,tpTimer=600..}] run tag @s add tpMillAdd
+if(@s[tag=tpMillAdd,tag=!tpPowered]){
+  /scoreboard players add @s[scores={tpE=..14}] tpE 1
+  /scoreboard players reset @s tpTimer
+  /tag @s remove tpMillAdd
+}
+if(@a[distance=..2]){
+  /execute if score @s tpE matches 0 run title @a[distance=..2] actionbar ["",{"text":"","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 1 run title @a[distance=..2] actionbar ["",{"text":"▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 2 run title @a[distance=..2] actionbar ["",{"text":"▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 3 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 4 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 5 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 6 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 7 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 8 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 9 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 10 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 11 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 12 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 13 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 14 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌","color":"green"},{"text":"▌  ","color":"gray"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+  /execute if score @s tpE matches 15 run title @a[distance=..2] actionbar ["",{"text":"▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ","color":"green"},{"text":"(","color":"gray"},{"score":{"name":"@s","objective":"tpE"},"color":"gray"},{"text":" of 15","color":"gray"},{"text":") | ","color":"gray"},{"score":{"name":"@s","objective":"tpMillY"},"color":"gold"},{"text":"% Efficiency","color":"gold"}]
+}

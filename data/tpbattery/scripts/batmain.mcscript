@@ -7,6 +7,9 @@ positioned('^ ^ ^1'),if(!'score @e[tag=tpCable,distance=..0.8,limit=1] tpE match
 positioned('^ ^ ^-1'),if('score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1..'&&'score @s tpE < @s tpBattMax'){
   /tag @s add tpBattAdd
 }
+positioned('~ ~1 ~'),if('score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1..'&&'score @s tpE < @s tpBattMax'){
+  /tag @s add tpBattAddUp
+}
 }
 positioned('^ ^ ^-1'),if(@s[tag=tpBattAdd]){
   /scoreboard players add @s tpE 1
@@ -15,6 +18,13 @@ positioned('^ ^ ^-1'),if(@s[tag=tpBattAdd]){
   /scoreboard players remove @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
   /scoreboard players reset @e[tag=tpCable,distance=..0.8,scores={tpE=..0}] tpE
   /tag @s remove tpBattAdd
+}
+positioned('~ ~1 ~'),if(@s[tag=tpBattAddUp]){
+  /scoreboard players add @s tpE 1
+  /execute positioned ~ ~-1 ~ run function tpbattery:items
+  /scoreboard players remove @e[tag=tpCable,distance=..0.8,limit=1] tpE 1
+  /scoreboard players reset @e[tag=tpCable,distance=..0.8,scores={tpE=..0}] tpE
+  /tag @s remove tpBattAddUp
 }
 positioned('^ ^ ^1'),if(@s[tag=tpBattRemove]){
   /scoreboard players add @e[tag=tpCable,distance=..0.8,limit=1] tpE 1

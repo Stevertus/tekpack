@@ -10,9 +10,9 @@ execute if score @s tpCraftID matches 6 run replaceitem block ~ ~ ~ container.15
 execute if score @s tpCraftID matches 6 run tag @s add tpCraftNoStack
 execute if score @s tpCraftID matches 7 run replaceitem block ~ ~ ~ container.15 minecraft:stone_hoe{id:103s,Unbreakable:1b,Damage:6,HideFlags:4,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§aBattery Cell\"}"}}
 execute if score @s tpCraftID matches 8 run replaceitem block ~ ~ ~ container.15 minecraft:carrot_on_a_stick{Unbreakable:1b,HideFlags:6,Damage:7,display:{Name:"{\"text\":\"§5Vacuum Hopper\"}"}}
-execute if score @s tpCraftID matches 8 run tag @s add tpCraftNoStack
 execute if score @s tpCraftID matches 9 run replaceitem block ~ ~ ~ container.15 minecraft:carrot_on_a_stick{Unbreakable:1b,HideFlags:6,Damage:8,display:{Name:"{\"text\":\"§5Drill\"}"}}
-execute if score @s tpCraftID matches 9 run tag @s add tpCraftNoStack
-execute if score @s tpCraftID matches 9 run tag @s add tpCraftNoStack
 execute if score @s tpCraftID matches 10 run replaceitem block ~ ~ ~ container.15 minecraft:carrot_on_a_stick{Unbreakable:1b,HideFlags:6,Damage:9,display:{Name:"{\"text\":\"§aGenerator\"}"}}
-execute if score @s tpCraftID matches 10 run tag @s add tpCraftNoStack
+execute if score @s tpCraftID matches 11 run replaceitem block ~ ~ ~ container.15 stone_hoe{Unbreakable:1b,Damage:8,HideFlags:6,display:{Name:"{\"text\":\"Turbine Blades\"}"}}
+execute if score @s tpCraftID matches 12 run replaceitem block ~ ~ ~ container.15 minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:10,HideFlags:6,display:{Name:"{\"text\":\"§aWind Turbine\"}"}}
+execute if score @s tpCraftID matches 13 run replaceitem block ~ ~ ~ container.15 minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:11,HideFlags:6,display:{Name:"{\"text\":\"§aWater Turbine\"}"}}
+execute if score @s tpCraftID matches 8..13 run tag @s add tpCraftNoStack
