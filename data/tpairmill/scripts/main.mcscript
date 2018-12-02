@@ -8,7 +8,7 @@ asat(@e[tag=tpAirMill]){
       }
       /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:firework_rocket",Count:1,tag:{CustomModelData:3390006,isTekPack:1,HideFlags:6,display:{Name:"{\"text\":\"Wind Turbine\",\"italic\":false,\"color\":\"green\"}"},Fireworks:{}}}}
       /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:light_gray_stained_glass"}}]
-      /kill @e[tag=tpMillBlade,distance=..1]
+      /kill @e[tag=tpMillBlade,distance=..0.8]
       /kill @s
     }
     /scoreboard players add @s tpTimer 1

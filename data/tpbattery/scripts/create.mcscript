@@ -2,40 +2,23 @@
 align("xyz"){
   /setblock ~ ~ ~ dropper[facing=up,triggered=true]
   /data merge block ~ ~ ~ {CustomName:"{\"text\":\"Battery\"}"}
-  /summon armor_stand ~0.5 ~0.47 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher],Invisible:1,Marker:1,NoGravity:1,Fire:32767}
 }
 
 if(@s[y_rotation=-45..44.99]){
-  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
-    /tag @s add tpCableNoConnectW
-    /tag @s add tpCableNoConnectE
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectW,tpCableNoConnectE],Invisible:1,Marker:1,NoGravity:1,Fire:32767}
 }
 if(@s[y_rotation=45..134.99]){
-  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 90 0
-    /tag @s add tpCableNoConnectN
-    /tag @s add tpCableNoConnectS
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectN,tpCableNoConnectS],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[90f,0f]}
 }
 if(@s[y_rotation=135..-135.01]){
-  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 180 0
-    /tag @s add tpCableNoConnectW
-    /tag @s add tpCableNoConnectE
-  }
+    /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectW,tpCableNoConnectE],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[180f,0f]}
 }
 if(@s[y_rotation=-135..-45]){
-  asat(@e[tag=tpBattery,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ -90 0
-    /tag @s add tpCableNoConnectN
-    /tag @s add tpCableNoConnectS
-  }
+    /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher,tpCableNoConnectN,tpCableNoConnectS],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[-90f,0f]}
 }
 asat(@e[tag=tpBattery,tag=tpNew]){
   /scoreboard players set @s tpBattMulti 1
   /scoreboard players set @s tpBattMax 15
-  /tp @s ~ ~0.03 ~
   positioned('^ ^ ^1'),asat(@e[tag=tpCable,distance=..0.8]){
     /function tpcables:update
   }

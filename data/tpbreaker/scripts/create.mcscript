@@ -2,31 +2,20 @@
 
 align("xyz"){
   /setblock ~ ~ ~ quartz_stairs[half=top,shape=inner_left]
-  /summon armor_stand ~0.5 ~0.4 ~0.5 {Tags: [tpBreaker,tpNew,tpCableConnector],Invisible:1,Marker:1,NoGravity:1}
 }
 
 if(@s[y_rotation=-45..44.99]){
-  asat(@e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1]){
-    /tag @s add tpCableNoConnectN
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBreaker,tpNew,tpCableConnector,tpCableNoConnectN],Invisible:1,Marker:1,NoGravity:1}
 }
 if(@s[y_rotation=45..134.99]){
-  asat(@e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 90 0
-    /tag @s add tpCableNoConnectO
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBreaker,tpNew,tpCableConnector,tpCableNoConnectO],Invisible:1,Marker:1,NoGravity:1,Rotation:[90f,0f]}
 }
 if(@s[y_rotation=135..-135.01]){
-  asat(@e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 180 0
-    /tag @s add tpCableNoConnectS
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBreaker,tpNew,tpCableConnector,tpCableNoConnectS],Invisible:1,Marker:1,NoGravity:1,Rotation:[180f,0f]}
 }
 if(@s[y_rotation=-135..-45]){
-  asat(@e[tag=tpBreaker,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ -90 0
-    /tag @s add tpCableNoConnectW
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBreaker,tpNew,tpCableConnector,tpCableNoConnectW],Invisible:1,Marker:1,NoGravity:1,Rotation:[-9f,0f]}
+
 }
 asat(@e[tag=tpBreaker,tag=tpNew]){
   /scoreboard players set @s tpE 0

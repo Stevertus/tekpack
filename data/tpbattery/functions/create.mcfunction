@@ -6,25 +6,16 @@
 ######
 execute align xyz run setblock ~ ~ ~ dropper[facing=up,triggered=true]
 execute align xyz run data merge block ~ ~ ~ {CustomName:"{\"text\":\"Battery\"}"}
-execute align xyz run summon armor_stand ~0.5 ~0.47 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher],Invisible:1,Marker:1,NoGravity:1,Fire:32767}
-execute if entity @s[y_rotation=-45..44.99] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectW
-execute if entity @s[y_rotation=-45..44.99] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectE
+execute if entity @s[y_rotation=-45..44.99] run summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectW,tpCableNoConnectE],Invisible:1,Marker:1,NoGravity:1,Fire:32767}
 
-execute if entity @s[y_rotation=45..134.99] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ 90 0
-execute if entity @s[y_rotation=45..134.99] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectN
-execute if entity @s[y_rotation=45..134.99] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectS
+execute if entity @s[y_rotation=45..134.99] run summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectN,tpCableNoConnectS],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[90f,0f]}
 
-execute if entity @s[y_rotation=135..-135.01] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ 180 0
-execute if entity @s[y_rotation=135..-135.01] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectW
-execute if entity @s[y_rotation=135..-135.01] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectE
+execute if entity @s[y_rotation=135..-135.01] run summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpCableNoConnectW,tpCableNoConnectE],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[180f,0f]}
 
-execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tp @s ~ ~ ~ -90 0
-execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectN
-execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBattery,tag=tpNew,distance=..5,limit=1] at @s run tag @s add tpCableNoConnectS
+execute if entity @s[y_rotation=-135..-45] run summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBattery,tpNew,tpCableConnector,tpCableNoConnectU,tpCableNoConnectD,tpHigher,tpCableNoConnectN,tpCableNoConnectS],Invisible:1,Marker:1,NoGravity:1,Fire:32767,Rotation:[-90f,0f]}
 
 execute as @e[tag=tpBattery,tag=tpNew] at @s run scoreboard players set @s tpBattMulti 1
 execute as @e[tag=tpBattery,tag=tpNew] at @s run scoreboard players set @s tpBattMax 15
-execute as @e[tag=tpBattery,tag=tpNew] at @s run tp @s ~ ~0.03 ~
 execute as @e[tag=tpBattery,tag=tpNew] at @s positioned ^ ^ ^1 as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update
 execute as @e[tag=tpBattery,tag=tpNew] at @s positioned ^ ^ ^-1 as @e[tag=tpCable,distance=..0.8] at @s run function tpcables:update
 execute as @e[tag=tpBattery,tag=tpNew] at @s run replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390003}

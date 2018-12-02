@@ -1,36 +1,23 @@
 #file: ./create
 
-align("xyz"){
-  /setblock ~ ~ ~ furnace{CustomName:"{\"text\":\"Generator\"}"}
-  /summon armor_stand ~0.5 ~1.4 ~0.5 {Tags: [tpGenerator,tpNew,tpCableConnector,tpHigher],Invisible:1,Marker:1,NoGravity:1}
-}
-
 if(@s[y_rotation=-45..44.99]){
-  asat(@e[tag=tpGenerator,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 180 0
-    /setblock ~ ~-1 ~ furnace[facing=north]
-  }
+  /summon armor_stand ~0.5 ~1.5 ~0.5 {Tags: [tpGenerator,tpNew,tpCableConnector,tpHigher],Invisible:1,Marker:1,NoGravity:1,Rotation:[180f,0f]}
+  /setblock ~ ~ ~ furnace[facing=north]{CustomName:"{\"text\":\"Generator\"}"}
 }
 if(@s[y_rotation=45..134.99]){
-  asat(@e[tag=tpGenerator,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ -90 0
-    /setblock ~ ~-1 ~ furnace[facing=east]
-  }
+  /summon armor_stand ~0.5 ~1.5 ~0.5 {Tags: [tpGenerator,tpNew,tpCableConnector,tpHigher],Invisible:1,Marker:1,NoGravity:1,Rotation:[-90f,0f]}
+  /setblock ~ ~ ~ furnace[facing=east]{CustomName:"{\"text\":\"Generator\"}"}
 }
 if(@s[y_rotation=135..-135.01]){
-  asat(@e[tag=tpGenerator,tag=tpNew,distance=..5,limit=1]){
-    /setblock ~ ~-1 ~ furnace[facing=south]
-  }
+  /summon armor_stand ~0.5 ~1.5 ~0.5 {Tags: [tpGenerator,tpNew,tpCableConnector,tpHigher],Invisible:1,Marker:1,NoGravity:1}
+  /setblock ~ ~ ~ furnace[facing=south]{CustomName:"{\"text\":\"Generator\"}"}
 }
 if(@s[y_rotation=-135..-45]){
-  asat(@e[tag=tpGenerator,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 90 0
-    /setblock ~ ~-1 ~ furnace[facing=west]
-  }
+  /summon armor_stand ~0.5 ~1.5 ~0.5 {Tags: [tpGenerator,tpNew,tpCableConnector,tpHigher],Invisible:1,Marker:1,NoGravity:1,Rotation:[90f,0f]}
+  /setblock ~ ~ ~ furnace[facing=west]{CustomName:"{\"text\":\"Generator\"}"}
 }
 asat(@e[tag=tpGenerator,tag=tpNew]){
   /scoreboard players set @s tpE 0
-  /tp @s ~ ~0.1 ~
   positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..1.1]){
     /function tpcables:update
   }

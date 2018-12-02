@@ -7,27 +7,22 @@ align("xyz"){
   /setblock ~ ~-1 ~ air destroy
   /setblock ~ ~-1 ~ end_rod[facing=down]
   }
-  /summon armor_stand ~0.5 ~0.4 ~0.5 {Tags: [tpDrill,tpDrillSetup,tpNew,tpCableConnector,tpCableNoConnectD],Invisible:1,Marker:1,NoGravity:1}
 }
-
+if(@s[y_rotation=-45..44.99]){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpDrill,tpDrillSetup,tpNew,tpCableConnector,tpCableNoConnectD],Invisible:1,Marker:1,NoGravity:1}
+}
 if(@s[y_rotation=45..134.99]){
-  asat(@e[tag=tpDrill,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 90 0
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpDrill,tpDrillSetup,tpNew,tpCableConnector,tpCableNoConnectD],Invisible:1,Marker:1,NoGravity:1,Rotation:[90f,0f]}
 }
 if(@s[y_rotation=135..-135.01]){
-  asat(@e[tag=tpDrill,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ 180 0
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpDrill,tpDrillSetup,tpNew,tpCableConnector,tpCableNoConnectD],Invisible:1,Marker:1,NoGravity:1,Rotation:[180f,0f]}
+
 }
 if(@s[y_rotation=-135..-45]){
-  asat(@e[tag=tpDrill,tag=tpNew,distance=..5,limit=1]){
-    /tp @s ~ ~ ~ -90 0
-  }
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpDrill,tpDrillSetup,tpNew,tpCableConnector,tpCableNoConnectD],Invisible:1,Marker:1,NoGravity:1,Rotation:[-90f,0f]}
 }
 asat(@e[tag=tpDrill,tag=tpNew]){
   /scoreboard players set @s tpE 0
-  /tp @s ~ ~0.1 ~
   asat(@e[tag=tpCable,distance=..1.1]){
     /function tpcables:update
   }
