@@ -3,7 +3,7 @@
 align("xyz"){
   /setblock ~ ~ ~ light_blue_stained_glass
   /summon armor_stand ~0.5 ~0.47 ~0.5 {Tags: [tpWatMill,tpMill,tpNew,tpCableConnector],Invisible:1,Marker:1,NoGravity:1}
-  /summon armor_stand ~0.5 ~-0.13 ~0.5 {Fire:32767,Small:1,Tags: [tpMill,tpMillBlade,tpNew,tpCableConnector],Invisible:1,Marker:1,NoGravity:1,ShowArms:1b,HandItems:[{id:"stone_hoe",tag:{Unbreakable:1b,Damage:8},Count:1b},{}],Pose:{RightArm:[23f,0f,0f]}}
+  /summon armor_stand ~0.5 ~-0.13 ~0.5 {Fire:32767,Small:1,Tags: [tpMill,tpMillBlade,tpNew,tpCableConnector],Invisible:1,Marker:1,NoGravity:1,ShowArms:1b,HandItems:[{id:"iron_ingot",tag:{CustomModelData:3390001},Count:1b},{}],Pose:{RightArm:[23f,0f,0f]}}
 }
 
 if(@s[y_rotation=-45..44.99]){
@@ -36,7 +36,7 @@ asat(@e[tag=tpWatMill,tag=tpNew]){
   asat(@e[tag=tpCable,distance=..1.1]){
     /function tpcables:update
   }
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:11}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390007}
 
   /scoreboard players set #t2 tpTimer 294
   /tag @s remove tpNew

@@ -3,6 +3,7 @@ if("score #t tpTimer matches 2.."){
   /tag @s[tag=tpFirstPower] remove tpFirstPower
 positioned('^ ^ ^1'),if(!'score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 0..'&&'score @s tpE matches 1..'&&@e[tag=tpCable,distance=..0.8]){
   /tag @s[tag=!tpPowered] add tpBattRemove
+  /data merge entity @s {Fire:32767} 
 }
 positioned('^ ^ ^-1'),if('score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1..'&&'score @s tpE < @s tpBattMax'){
   /tag @s add tpBattAdd
@@ -75,11 +76,11 @@ if(@s[tag=tpUpdateItems]){
 }
 # upgrades
 /tag @s remove tpUpgraded
-if('block ~ ~ ~ dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b,Damage:6,Stackable:1b}}]}'){
+if('block ~ ~ ~ dropper{Items:[{id:"minecraft:lime_dye",Slot:2b,tag:{CustomModelData:3390001}}]}'){
   /tag @s add tpUpgraded
 }
 if(@s[tag=tpUpgraded]){
-  /execute store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount
+  /execute store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].Count
   /scoreboard players operation @s tpCraftCount3 *= #5 tpE
 
   /scoreboard players set @s tpBattMax 15

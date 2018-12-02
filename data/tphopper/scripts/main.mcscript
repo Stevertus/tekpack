@@ -6,7 +6,7 @@ asat(@e[tag=tpHopper]){
       asat(@e[tag=tpCable,distance=..1.1]){
         /function tpcables:update
       }
-      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{Unbreakable:1b,Damage:7,HideFlags:6,display:{Name:"{\"text\":\"§5Vacuum Hopper\"}"}}}}
+      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:firework_rocket",Count:1,tag:{CustomModelData:3390010,isTekPack:1,HideFlags:6,display:{Name:"{\"text\":\"Vacuum Hopper\",\"italic\":false,\"color\":\"dark_purple\"}"},Fireworks:{}}}}
       /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:hopper"}}]
       /kill @s
     }
@@ -19,21 +19,6 @@ asat(@e[tag=tpHopper]){
 }
 
 
-asat(@a[scores={tpClick=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1b,HideFlags:6,Damage:7}}}]){
-  /tag @s add tpRayFail
-  /function tphopper:place
-  if(@s[tag=!tpRayFail]){
-    /tag @s add tpRaySuccess
-  }
-  if(@s[tag=tpRayFail]){
-    /tag @s remove tpRayFail
-  }
-  /scoreboard players reset @s tpClick
-}
-as(@a[tag=tpRaySuccess]){
-  /replaceitem entity @s weapon.mainhand air
-  /tag @s remove tpRaySuccess
-}
 asat(@e[type=item,tag=tpHopperAttractNew]){
   /data merge entity @s {NoGravity:1b,Motion:[0,0,0],PickupDelay:40}
   /tp @s ~ ~0.1 ~

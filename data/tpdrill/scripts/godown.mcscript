@@ -9,7 +9,7 @@ if(!"block ~ ~-1 ~ air"){
 if(@s[tag=tpDrillDigDown]){
   /tag @e[tag=tpDrillPipeEnd,distance=..8] remove tpDrillPipeEnd
   /summon armor_stand ~ ~-1 ~ {Tags: [tpDrillPipe,tpDrillPipeEnd],Invisible:1,NoGravity:1,Small:1b,Invulnerable:1}
-  /execute positioned ~ ~-1 ~ run replaceitem entity @e[tag=tpDrillPipe] armor.head iron_pickaxe{Unbreakable:1b,Damage:2}
+  /execute positioned ~ ~-1 ~ run replaceitem entity @e[tag=tpDrillPipe] armor.head lime_dye{CustomModelData:3390002}
 } else if(@s[tag=!tpDrillDigEnd]) {
   positioned("~ ~-1 ~") {
     /function tpdrill:godown

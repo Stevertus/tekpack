@@ -20,5 +20,5 @@ execute if entity @s[y_rotation=-135..-45] as @e[tag=tpBreaker,tag=tpNew,distanc
 execute as @e[tag=tpBreaker,tag=tpNew] at @s run scoreboard players set @s tpE 0
 execute as @e[tag=tpBreaker,tag=tpNew] at @s run tp @s ~ ~0.1 ~
 execute as @e[tag=tpBreaker,tag=tpNew] at @s as @e[tag=tpCable,distance=..1.1] at @s run function tpcables:update
-execute as @e[tag=tpBreaker,tag=tpNew] at @s run replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:5}
+execute as @e[tag=tpBreaker,tag=tpNew] at @s run replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390009}
 execute as @e[tag=tpBreaker,tag=tpNew] at @s run tag @s remove tpNew

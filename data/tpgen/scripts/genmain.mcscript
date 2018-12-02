@@ -1,7 +1,7 @@
 #file: ./genmain
 if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",Slot:0b}]}'){
-  /clear @a[distance=..4] iron_pickaxe{Unbreakable:1b,fromGen:1b}
-  /replaceitem block ~ ~ ~ container.0 iron_pickaxe{Unbreakable:1b,fromGen:1b,Damage:3,HideFlags:6,display:{Name:"{\"text\":\"\"}"}}
+  /clear @a[distance=..4] iron_pickaxe{CustomModelData:3390002,fromGen:1b}
+  /replaceitem block ~ ~ ~ container.0 iron_pickaxe{CustomModelData:3390002,fromGen:1b,HideFlags:6,display:{Name:"{\"text\":\"\"}"}}
 }
 if('block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_nugget",Slot:2b}]}'){
   /scoreboard players add @s[scores={tpE=..14}] tpE 1

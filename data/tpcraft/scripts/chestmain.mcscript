@@ -11,30 +11,32 @@ if("block ~1 ~ ~ air"&&@e[tag=tpCraftBlockE]){
   /tag @s remove tpCraftBlockE
 }
 #
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:0b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:0b}]} run replaceitem block ~ ~ ~ container.0 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:9b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:9b}]} run replaceitem block ~ ~ ~ container.9 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:18b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:18b}]} run replaceitem block ~ ~ ~ container.18 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
-for(4,8){
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:0b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:0b}]} run replaceitem block ~ ~ ~ container.0 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:9b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:9b}]} run replaceitem block ~ ~ ~ container.9 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:18b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:18b}]} run replaceitem block ~ ~ ~ container.18 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
+# place gui item
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",Slot:4b,tag:{CustomModelData:3390008}}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},CustomModelData:3390008} 1
+/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",Slot:4b,tag:{CustomModelData:3390008}}]} run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},CustomModelData:3390008,HideFlags:6}
+
+for(5,8){
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
 }
 for(13,14){
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
 }
 for(16,17){
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
 }
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",Slot:22b,tag:{Unbreakable:1b,Damage:10}}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},Unbreakable:1b,Damage:10} 1
-/execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",Slot:22b,tag:{Unbreakable:1b,Damage:10}}]} run replaceitem block ~ ~ ~ container.22 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},Unbreakable:1b,Damage:10,HideFlags:6}
 
-for(23,26){
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11} 1
-  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{Unbreakable:1b,Damage:11},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11}
+for(22,26){
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run clear @a[distance=..4] minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001} 1
+  /execute unless block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone_hoe",tag:{CustomModelData:3390001},Slot:$(i)b}]} run replaceitem block ~ ~ ~ container.$(i) minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001}
 }
 #
 # get Count

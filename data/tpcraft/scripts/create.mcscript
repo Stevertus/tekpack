@@ -5,6 +5,6 @@ align("xyz"){
   /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpCrafter,tpNew],Invisible:1,Marker:1,NoGravity:1}
 }
 asat(@e[tag=tpCrafter,tag=tpNew]){
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:2}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390001}
   /tag @s remove tpNew
 }

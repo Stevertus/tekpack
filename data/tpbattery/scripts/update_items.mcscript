@@ -7,38 +7,38 @@
 /scoreboard players operation @s tpEDisplay *= @s tpBattMulti
 /scoreboard players operation @s tpEDisplay /= #100 tpE
 
-/replaceitem block ~ ~ ~ container.0 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.3 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.5 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.6 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:9,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
-/replaceitem block ~ ~ ~ container.8 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:11,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.0 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.3 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.5 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.6 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390002,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
+/replaceitem block ~ ~ ~ container.8 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390001,battDisplay:1b}
 if('score @s tpEDisplay matches 1'){
-  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:5,battDisplay:1b}
+  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390003,battDisplay:1b}
 }
 if('score @s tpEDisplay matches 2'){
-  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:4,battDisplay:1b}
+  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390004,battDisplay:1b}
 }
-/execute if score @s tpEDisplay matches 3 run replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:3,battDisplay:1b}
-/execute if score @s tpEDisplay matches 4 run replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:2,battDisplay:1b}
+/execute if score @s tpEDisplay matches 3 run replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390005,battDisplay:1b}
+/execute if score @s tpEDisplay matches 4 run replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390006,battDisplay:1b}
 
 if('score @s tpEDisplay matches 5..'){
-  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:1,battDisplay:1b}
+  /replaceitem block ~ ~ ~ container.7 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390007,battDisplay:1b}
 }
 
-/execute if score @s tpEDisplay matches 6 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:5,battDisplay:1b}
-/execute if score @s tpEDisplay matches 7 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:4,battDisplay:1b}
-/execute if score @s tpEDisplay matches 8 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:3,battDisplay:1b}
-/execute if score @s tpEDisplay matches 9 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:2,battDisplay:1b}
+/execute if score @s tpEDisplay matches 6 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390003,battDisplay:1b}
+/execute if score @s tpEDisplay matches 7 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390004,battDisplay:1b}
+/execute if score @s tpEDisplay matches 8 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390005,battDisplay:1b}
+/execute if score @s tpEDisplay matches 9 run replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390006,battDisplay:1b}
 if('score @s tpEDisplay matches 10..'){
-  /replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:1,battDisplay:1b}
+  /replaceitem block ~ ~ ~ container.4 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390007,battDisplay:1b}
 }
-/execute if score @s tpEDisplay matches 11 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:5,battDisplay:1b}
-/execute if score @s tpEDisplay matches 12 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:4,battDisplay:1b}
-/execute if score @s tpEDisplay matches 13 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:3,battDisplay:1b}
-/execute if score @s tpEDisplay matches 14 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:2,battDisplay:1b}
+/execute if score @s tpEDisplay matches 11 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390003,battDisplay:1b}
+/execute if score @s tpEDisplay matches 12 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390004,battDisplay:1b}
+/execute if score @s tpEDisplay matches 13 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390005,battDisplay:1b}
+/execute if score @s tpEDisplay matches 14 run replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390006,battDisplay:1b}
 if('score @s tpEDisplay matches 15..'){
-  /replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,Unbreakable:1b,Damage:1,battDisplay:1b}
+  /replaceitem block ~ ~ ~ container.1 minecraft:stone_hoe{display:{Name:"{\"text\":\"\"}"},HideFlags:6,CustomModelData:3390007,battDisplay:1b}
 }

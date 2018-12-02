@@ -4,26 +4,26 @@ if("score #t tpTimer matches 2.."){
 if('score @e[tag=tpCable,distance=..1.1,limit=1] tpE matches 1..'&&'score @s tpE matches ..9'){
   /tag @s add tpAdd
 }
-if(@s[scores={tpE=2..},tag=!tpPowered,tag=!tpFurnBurning] 'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",tag:{Unbreakable:1b}}]}'){
+if(@s[scores={tpE=2..},tag=!tpPowered,tag=!tpFurnBurning] 'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",tag:{CustomModelData:3390001}}]}'){
   /tag @s add tpFurnReady
 }
 }
-if(!'entity @a[distance=..4,nbt={Inventory:[{id:"minecraft:wooden_pickaxe",tag:{Unbreakable:1b,Damage:1}}]}] unless block ~ ~ ~ furnace{Items:[{id:"minecraft:wooden_pickaxe",tag:{Unbreakable:1b,Damage:1}}]}'&&@s[tag=tpFurnBurning]){
-  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{Unbreakable:1b,Damage:1,HideFlags:6,display:{Name:"{\"text\":\"§aNo Energy!\"}"}}
+if(!'entity @a[distance=..4,nbt={Inventory:[{id:"minecraft:wooden_pickaxe",tag:{CustomModelData:3390001}}]}] unless block ~ ~ ~ furnace{Items:[{id:"minecraft:wooden_pickaxe",tag:{CustomModelData:3390001}}]}'&&@s[tag=tpFurnBurning]){
+  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{CustomModelData:3390001,HideFlags:6,display:{Name:"{\"text\":\"§aNo Energy!\"}"}}
   /tag @s remove tpFurnBurning
 }
-if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:wooden_pickaxe",tag:{Unbreakable:1b,Damage:1}}]}'&&@s[tag=tpFurnBurning]){
-  /kill @e[distance=..2,type=item,nbt={Item:{id:"minecraft:wooden_pickaxe",tag:{Unbreakable:1b,Damage:1}}}]
-  /clear @a[distance=..4] minecraft:wooden_pickaxe{Unbreakable:1b,Damage:1} 1
-  /replaceitem block ~ ~ ~ container.1 minecraft:wooden_pickaxe{Unbreakable:1b,Damage:1,HideFlags:6,display:{Name:"{\"text\":\"§aHas Energy!\"}"}}
+if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:wooden_pickaxe",tag:{CustomModelData:3390001}}]}'&&@s[tag=tpFurnBurning]){
+  /kill @e[distance=..2,type=item,nbt={Item:{id:"minecraft:wooden_pickaxe",tag:{CustomModelData:3390001}}}]
+  /clear @a[distance=..4] minecraft:wooden_pickaxe{CustomModelData:3390001} 1
+  /replaceitem block ~ ~ ~ container.1 minecraft:wooden_pickaxe{CustomModelData:3390001,HideFlags:6,display:{Name:"{\"text\":\"§aHas Energy!\"}"}}
 }
-if('entity @a[distance=..4,nbt={Inventory:[{id:"minecraft:wooden_pickaxe",tag:{Unbreakable:1b,Damage:1}}]}]'){
-  /clear @a[distance=..4] minecraft:wooden_pickaxe{Unbreakable:1b,Damage:1} 1
+if('entity @a[distance=..4,nbt={Inventory:[{id:"minecraft:wooden_pickaxe",tag:{CustomModelData:3390001}}]}]'){
+  /clear @a[distance=..4] minecraft:wooden_pickaxe{CustomModelData:3390001} 1
 }
-if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",tag:{Unbreakable:1b,Damage:1}}]}'&&@s[tag=!tpFurnBurning]){
-  /kill @e[distance=..2,type=item,nbt={Item:{id:"minecraft:iron_pickaxe",tag:{Unbreakable:1b,Damage:1}}}]
-  /clear @a[distance=..4] minecraft:iron_pickaxe{Unbreakable:1b,Damage:1} 1
-  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{Unbreakable:1b,Damage:1,HideFlags:6,display:{Name:"{\"text\":\"§aNo Energy!\"}"}}
+if(!'block ~ ~ ~ furnace{Items:[{id:"minecraft:iron_pickaxe",tag:{CustomModelData:3390001}}]}'&&@s[tag=!tpFurnBurning]){
+  /kill @e[distance=..2,type=item,nbt={Item:{id:"minecraft:iron_pickaxe",tag:{CustomModelData:3390001}}}]
+  /clear @a[distance=..4] minecraft:iron_pickaxe{CustomModelData:3390001} 1
+  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{CustomModelData:3390001,HideFlags:6,display:{Name:"{\"text\":\"§aNo Energy!\"}"}}
 }
 
 if(@s[tag=tpAdd]){
@@ -34,7 +34,7 @@ if(@s[tag=tpAdd]){
   /tag @s remove tpAdd
 }
 if(@s[tag=tpFurnReady]){
-  /replaceitem block ~ ~ ~ container.1 minecraft:wooden_pickaxe{Unbreakable:1b,Damage:1,HideFlags:6,display:{Name:"{\"text\":\"§aHas Energy!\"}"}}
+  /replaceitem block ~ ~ ~ container.1 minecraft:wooden_pickaxe{CustomModelData:3390001,HideFlags:6,display:{Name:"{\"text\":\"§aHas Energy!\"}"}}
   /scoreboard players remove @s tpE 2
   /tag @s add tpFurnBurning
   /tag @s remove tpFurnReady

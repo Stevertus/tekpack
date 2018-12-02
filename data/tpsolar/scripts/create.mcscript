@@ -8,6 +8,6 @@ asat(@e[tag=tpSolar,tag=tpNew]){
   positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..0.8]){
     /function tpcables:update
   }
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:4}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390005}
   /tag @s remove tpNew
 }

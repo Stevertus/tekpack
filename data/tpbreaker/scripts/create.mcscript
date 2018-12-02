@@ -34,6 +34,6 @@ asat(@e[tag=tpBreaker,tag=tpNew]){
   asat(@e[tag=tpCable,distance=..1.1]){
     /function tpcables:update
   }
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:5}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390009}
   /tag @s remove tpNew
 }

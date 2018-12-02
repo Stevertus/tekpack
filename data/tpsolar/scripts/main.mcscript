@@ -9,7 +9,7 @@ asat(@e[tag=tpSolar]){
         /function tpcables:update
       }
 
-      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1,tag:{id:102s,Unbreakable:1b,Damage:4,HideFlags:4,Stackable:1b,maxStack:64s,AttributeModifiers:[{UUIDMost:-1,UUIDLeast:-1,Amount:1,Slot:"mainhand",AttributeName:"generic.followRange",Operation:0,Name:"stack"}],display:{Name:"{\"text\":\"§5Solar Panel\"}"}}}}
+      /summon minecraft:item ~ ~0.1 ~ {Item:{id:"minecraft:firework_rocket",Count:1,tag:{CustomModelData:3390005,isTekPack:1,HideFlags:6,display:{Name:"{\"text\":\"Solar Panel\",\"italic\":false,\"color\":\"green\"}"},Fireworks:{}}}}
       /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:daylight_detector"}}]
       /kill @s
     }
@@ -18,21 +18,4 @@ asat(@e[tag=tpSolar]){
     /function tpsolar:solarmain
     /scoreboard players reset @s tpTimer
   }
-}
-
-
-asat(@a[scores={tpClick=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1b,HideFlags:4,Damage:4}}}]){
-  /tag @s add tpRayFail
-  /function tpsolar:place
-  if(@s[tag=!tpRayFail]){
-    /tag @s add tpRaySuccess
-  }
-  if(@s[tag=tpRayFail]){
-    /tag @s remove tpRayFail
-  }
-  /scoreboard players reset @s tpClick
-}
-as(@a[tag=tpRaySuccess]){
-  /function stack:remove
-  /tag @s remove tpRaySuccess
 }

@@ -34,7 +34,7 @@ asat(@e[tag=tpFurnace,tag=tpNew]){
   positioned('~ ~-1 ~'),asat(@e[tag=tpCable,distance=..1.1]){
     /function tpcables:update
   }
-  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{Unbreakable:1b,Damage:1,HideFlags:6,display:{Name:"{\"text\":\"§aNo energy!\"}"}}
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:6}
+  /replaceitem block ~ ~ ~ container.1 minecraft:iron_pickaxe{CustomModelData:3390001,HideFlags:6,display:{Name:"{\"text\":\"§aNo energy!\"}"}}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390008}
   /tag @s remove tpNew
 }

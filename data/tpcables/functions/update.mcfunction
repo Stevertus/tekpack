@@ -38,10 +38,10 @@ execute positioned ~ ~1 ~ if entity @e[tag=tpCableConnector,tag=!tpCableNoConnec
 execute positioned ~ ~-1 ~ if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectD,distance=..0.8] run tag @s add tpCableD
 execute positioned ~ ~-1 ~ if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectD,distance=..0.8] run scoreboard players add @s tpCableCount 1
 execute positioned ~ ~ ~-1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8] run tag @s add tpCableN
-execute positioned ~ ~ ~-1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
+execute positioned ~ ~ ~-1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390010}
 execute positioned ~ ~ ~-1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectN,distance=..0.8] run scoreboard players add @s tpCableCount 1
 execute positioned ~ ~ ~1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8] run tag @s add tpCableS
-execute positioned ~ ~ ~1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
+execute positioned ~ ~ ~1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390011}
 execute positioned ~ ~ ~1 if entity @e[tag=tpCableConnector,tag=!tpCableNoConnectS,distance=..0.8] run scoreboard players add @s tpCableCount 1
 #tooHigh
 execute positioned ~1 ~1 ~ if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectE,distance=..0.8] run tag @s add tpCableE
@@ -53,87 +53,87 @@ execute positioned ~ ~2 ~ if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tp
 execute positioned ~ ~ ~ if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectD,distance=0.01..0.8] run tag @s add tpCableD
 execute positioned ~ ~ ~ if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectD,distance=0.01..0.8] run scoreboard players add @s tpCableCount 1
 execute positioned ~ ~1 ~-1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8] run tag @s add tpCableN
-execute positioned ~ ~1 ~-1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:10,Unbreakable:1}
+execute positioned ~ ~1 ~-1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390010}
 execute positioned ~ ~1 ~-1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectN,distance=..0.8] run scoreboard players add @s tpCableCount 1
 execute positioned ~ ~1 ~1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8] run tag @s add tpCableS
-execute positioned ~ ~1 ~1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:11,Unbreakable:1}
+execute positioned ~ ~1 ~1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390011}
 execute positioned ~ ~1 ~1 if entity @e[tag=tpCableConnector,tag=tpHigher,tag=!tpCableNoConnectS,distance=..0.8] run scoreboard players add @s tpCableCount 1
 # richtige Models laden
-execute if entity @s[tag=tpCableN,tag=tpCableS] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+execute if entity @s[tag=tpCableN,tag=tpCableS] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390009}
 
-execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:4,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390004}
 
-execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:5,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390005}
 
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:13,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390013}
 
-execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:7,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390007}
 
-execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:6,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390006}
 
-execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390003}
 
-execute if entity @s[tag=tpCableE,tag=tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:8,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=tpCableW,tag=tpCableU] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390008}
 
-replaceitem entity @s armor.head diamond_pickaxe{Damage:1,Unbreakable:1}
+replaceitem entity @s armor.head diamond_pickaxe{CustomModelData:3390002}
 execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableStraight
 execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableStrWE
 execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=east]
-execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390003}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableStraight
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableStrNS
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=north]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390009}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD] run tag @s add tpCableStraight
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD] run tag @s add tpCableStrUD
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=up]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390012}
 
 execute if score @s tpCableCount matches 0 run tag @s add tpCableAlone
 execute if score @s tpCableCount matches 0 run setblock ~ ~ ~ minecraft:flower_pot
-execute if score @s tpCableCount matches 0 run replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+execute if score @s tpCableCount matches 0 run replaceitem entity @s armor.head diamond_pickaxe{CustomModelData:3390001}
 
 execute if score @s tpCableCount matches 2 if entity @s[tag=!tpCableStraight] run tag @s add tpCableCorner
 execute if score @s tpCableCount matches 2 if entity @s[tag=!tpCableStraight] run setblock ~ ~ ~ minecraft:flower_pot
-execute if score @s tpCableCount matches 2 if entity @s[tag=!tpCableStraight] run replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+execute if score @s tpCableCount matches 2 if entity @s[tag=!tpCableStraight] run replaceitem entity @s armor.head diamond_pickaxe{CustomModelData:3390001}
 
 execute if score @s tpCableCount matches 3 run tag @s add tpCableTInter
 execute if score @s tpCableCount matches 3 run setblock ~ ~ ~ minecraft:flower_pot
-execute if score @s tpCableCount matches 3 run replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+execute if score @s tpCableCount matches 3 run replaceitem entity @s armor.head diamond_pickaxe{CustomModelData:3390001}
 
 execute if score @s tpCableCount matches 4 run tag @s add tpCableIntersection
 execute if score @s tpCableCount matches 4 run setblock ~ ~ ~ minecraft:flower_pot
-execute if score @s tpCableCount matches 4 run replaceitem entity @s armor.head diamond_pickaxe{Damage:2,Unbreakable:1}
+execute if score @s tpCableCount matches 4 run replaceitem entity @s armor.head diamond_pickaxe{CustomModelData:3390001}
 
 scoreboard players reset @s tpCableCount
 execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEndE
 execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=west]
-execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+execute if entity @s[tag=tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390003}
 
 execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEndW
 execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=east]
-execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:3,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390003}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEndN
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=south]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=tpCableN,tag=!tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390009}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run tag @s add tpCableEndS
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=north]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{Damage:9,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=tpCableS,tag=!tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.offhand diamond_pickaxe{CustomModelData:3390009}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD] run tag @s add tpCableEndU
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=up]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=tpCableU,tag=!tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390012}
 
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD] run tag @s add tpCableEnd
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD] run tag @s add tpCableEndD
 execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD] run setblock ~ ~ ~ minecraft:end_rod[facing=down]
-execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{Damage:12,Unbreakable:1}
+execute if entity @s[tag=!tpCableE,tag=!tpCableW,tag=!tpCableN,tag=!tpCableS,tag=!tpCableU,tag=tpCableD] run replaceitem entity @s weapon.mainhand diamond_pickaxe{CustomModelData:3390012}

@@ -11,7 +11,8 @@
 /function tphopper:main
 /function tpdrill:main
 /function tpgen:main
-/function stack:main
+/function tpairmill:main
+/function tpwatmill:main
 
 if("score #t tpTimer matches 2.."){
   //function tekpack:slow_clock
@@ -20,3 +21,11 @@ if("score #t tpTimer matches 2.."){
 if("score #tt tpTimer matches 200.."){
   /scoreboard players reset #tt tpTimer
 }
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~0.4 ~ ~ air run tp @s ~0.5 ~ ~
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~-0.4 ~ ~ air run tp @s ~-0.5 ~ ~
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~ ~ ~-0.4 air run tp @s ~ ~ ~-0.5
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~ ~ ~0.4 air run tp @s ~ ~ ~0.5
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~ ~-0.4 ~ air run tp @s ~ ~-0.5 ~
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air if block ~ ~0.4 ~ air run tp @s ~ ~0.5 ~
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s align xyz if block ~ ~ ~ air run function tekpack:firework
+/execute as @e[type=firework_rocket,nbt={FireworksItem:{tag:{isTekPack:1}}}] at @s unless block ~ ~ ~ air run function tekpack:fireworkfail

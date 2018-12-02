@@ -6,6 +6,7 @@
 ######
 execute if score #t tpTimer matches 2.. run tag @s[tag=tpFirstPower] remove tpFirstPower
 execute if score #t tpTimer matches 2.. positioned ^ ^ ^1 unless score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 0.. if score @s tpE matches 1.. if entity @e[tag=tpCable,distance=..0.8] run tag @s[tag=!tpPowered] add tpBattRemove
+execute if score #t tpTimer matches 2.. positioned ^ ^ ^1 unless score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 0.. if score @s tpE matches 1.. if entity @e[tag=tpCable,distance=..0.8] run data merge entity @s {Fire:32767} 
 execute if score #t tpTimer matches 2.. positioned ^ ^ ^-1 if score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1.. if score @s tpE < @s tpBattMax run tag @s add tpBattAdd
 execute if score #t tpTimer matches 2.. positioned ~ ~1 ~ if score @e[tag=tpCable,distance=..0.8,limit=1] tpE matches 1.. if score @s tpE < @s tpBattMax run tag @s add tpBattAddUp
 
@@ -61,9 +62,9 @@ execute if entity @s[tag=tpUpdateItems] run tag @s remove tpUpdateItems
 
 # upgrades
 tag @s remove tpUpgraded
-execute if block ~ ~ ~ dropper{Items:[{id:"minecraft:stone_hoe",Slot:2b,tag:{Unbreakable:1b,Damage:6,Stackable:1b}}]} run tag @s add tpUpgraded
+execute if block ~ ~ ~ dropper{Items:[{id:"minecraft:lime_dye",Slot:2b,tag:{CustomModelData:3390001}}]} run tag @s add tpUpgraded
 
-execute if entity @s[tag=tpUpgraded] store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].tag.AttributeModifiers[0].Amount
+execute if entity @s[tag=tpUpgraded] store result score @s tpCraftCount3 run data get block ~ ~ ~ Items[2].Count
 execute if entity @s[tag=tpUpgraded] run scoreboard players operation @s tpCraftCount3 *= #5 tpE
 execute if entity @s[tag=tpUpgraded] run scoreboard players set @s tpBattMax 15
 execute if entity @s[tag=tpUpgraded] run scoreboard players operation @s tpBattMax += @s tpCraftCount3

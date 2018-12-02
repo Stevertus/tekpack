@@ -34,6 +34,6 @@ asat(@e[tag=tpDrill,tag=tpNew]){
   if("block ~ ~-2 ~ air"){
     /tag @s remove tpDrillSetup
   }
-  /replaceitem entity @s armor.head minecraft:carrot_on_a_stick{Unbreakable:1b,Damage:8}
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390011}
   /tag @s remove tpNew
 }
