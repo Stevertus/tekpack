@@ -13,6 +13,7 @@
 /function tpgen:main
 /function tpairmill:main
 /function tpwatmill:main
+/function tpdeco:main
 
 if("score #t tpTimer matches 2.."){
   //function tekpack:slow_clock

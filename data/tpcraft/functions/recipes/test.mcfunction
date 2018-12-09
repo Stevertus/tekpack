@@ -16,6 +16,23 @@ execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:cobblestone",Slot:1
 execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:iron_ingot",Slot:1b},{id:"minecraft:iron_ingot",Slot:3b},{id:"minecraft:ender_eye",Slot:11b},{id:"minecraft:shulker_shell",Slot:12b},{id:"minecraft:shulker_shell",Slot:10b},{id:"minecraft:hopper",Slot:20b}]} run scoreboard players set @s tpCraftID 3390010
 execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:iron_block",Slot:1b},{id:"minecraft:ender_pearl",Slot:2b},{id:"minecraft:iron_block",Slot:3b},{id:"minecraft:diamond_pickaxe",Slot:11b},{id:"minecraft:iron_block",Slot:12b},{id:"minecraft:iron_block",Slot:10b},{id:"minecraft:diamond_block",Slot:20b}]} run scoreboard players set @s tpCraftID 3390011
 
+#deco
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:firework_rocket",Slot:12b,tag:{CustomModelData:3390013}},{id:"minecraft:firework_rocket",Slot:20b,tag:{CustomModelData:3390013}},{id:"minecraft:iron_trapdoor",Slot:21b}]} run scoreboard players set @s tpCraftID 3390012
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:iron_ingot",Slot:1b},{id:"minecraft:iron_ingot",Slot:3b},{id:"minecraft:iron_bars",Slot:11b},{id:"minecraft:iron_ingot",Slot:19b},{id:"minecraft:iron_ingot",Slot:21b}]} run scoreboard players set @s tpCraftID 3390013
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stone",Slot:1b},{id:"minecraft:stone",Slot:2b},{id:"minecraft:stone",Slot:3b},{id:"minecraft:stone",Slot:10b},{id:"minecraft:iron_block",Slot:11b},{id:"minecraft:stone",Slot:12b},{id:"minecraft:stone",Slot:19b},{id:"minecraft:stone",Slot:20b},{id:"minecraft:stone",Slot:21b}]} run scoreboard players set @s tpCraftID 3390014
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:stick",Slot:1b},{id:"minecraft:iron_ingot",Slot:2b},{id:"minecraft:stick",Slot:3b},{id:"minecraft:firework_rocket",Slot:10b,tag:{CustomModelData:3390014}},{id:"minecraft:stick",Slot:11b},{id:"minecraft:firework_rocket",Slot:12b,tag:{CustomModelData:3390014}},{id:"minecraft:stick",Slot:19b},{id:"minecraft:iron_ingot",Slot:20b},{id:"minecraft:stick",Slot:21b}]} run scoreboard players set @s tpCraftID 3390015
+
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:black_dye",Slot:11b},{id:"minecraft:yellow_wool",Slot:12b},{id:"minecraft:yellow_wool",Slot:20b},{id:"minecraft:black_dye",Slot:21b}]} run scoreboard players set @s tpCraftID 3390016
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:black_dye",Slot:10b},{id:"minecraft:yellow_wool",Slot:11b},{id:"minecraft:yellow_wool",Slot:19b},{id:"minecraft:black_dye",Slot:20b}]} run scoreboard players set @s tpCraftID 3390016
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:black_dye",Slot:1b},{id:"minecraft:yellow_wool",Slot:2b},{id:"minecraft:yellow_wool",Slot:10b},{id:"minecraft:black_dye",Slot:11b}]} run scoreboard players set @s tpCraftID 3390016
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:black_dye",Slot:2b},{id:"minecraft:yellow_wool",Slot:3b},{id:"minecraft:yellow_wool",Slot:11b},{id:"minecraft:black_dye",Slot:12b}]} run scoreboard players set @s tpCraftID 3390016
+
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:black_dye",Slot:2b},{id:"minecraft:bone_meal",Slot:10b},{id:"minecraft:glass",Slot:11b},{id:"minecraft:bone_meal",Slot:12b},{id:"minecraft:black_dyee",Slot:20b}]} run scoreboard players set @s tpCraftID 3390017
+
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:white_concrete",Slot:11b},{id:"minecraft:white_concrete",Slot:12b},{id:"minecraft:white_concrete",Slot:20b},{id:"minecraft:white_concrete",Slot:21b}]} run scoreboard players set @s tpCraftID 3390018
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:white_concrete",Slot:10b},{id:"minecraft:white_concrete",Slot:11b},{id:"minecraft:white_concrete",Slot:19b},{id:"minecraft:white_concrete",Slot:20b}]} run scoreboard players set @s tpCraftID 3390018
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:white_concrete",Slot:2b},{id:"minecraft:white_concrete",Slot:3b},{id:"minecraft:white_concrete",Slot:11b},{id:"minecraft:white_concrete",Slot:12b}]} run scoreboard players set @s tpCraftID 3390018
+execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:white_concrete",Slot:1b},{id:"minecraft:white_concrete",Slot:2b},{id:"minecraft:white_concrete",Slot:10b},{id:"minecraft:white_concrete",Slot:11b}]} run scoreboard players set @s tpCraftID 3390018
 
 execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:blue_dye"},{id:"minecraft:book"}]} run scoreboard players set @s tpCraftID 3391001
 execute if block ~ ~ ~ minecraft:chest{Items:[{id:"minecraft:lapis_lazuli"},{id:"minecraft:book"}]} run scoreboard players set @s tpCraftID 3391001

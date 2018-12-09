@@ -17,6 +17,7 @@ function tpdrill:main
 function tpgen:main
 function tpairmill:main
 function tpwatmill:main
+function tpdeco:main
 execute if score #t tpTimer matches 2.. run scoreboard players reset #t tpTimer
 
 execute if score #tt tpTimer matches 200.. run scoreboard players reset #tt tpTimer
