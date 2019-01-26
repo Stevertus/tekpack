@@ -1,0 +1,16 @@
+
+{
+  "values":[
+  "minecraft:air",
+  "minecraft:bedrock",
+  "minecraft:void_air",
+  "minecraft:cave_air",
+  "minecraft:water",
+  "minecraft:lava",
+  "minecraft:wheat",
+  "minecraft:carrots",
+  "minecraft:potatoes",
+  "minecraft:beetroots"
+
+  ]
+}

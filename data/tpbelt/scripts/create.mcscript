@@ -1,0 +1,52 @@
+#file: ./create
+
+/setblock ~ ~ ~ snow[layers=2]
+
+if(@s[y_rotation=-45..44.99]){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBelt,tpBeltS,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1}
+}
+if(@s[y_rotation=45..134.99]){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBelt,tpBeltW,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[90f,0f]}
+}
+if(@s[y_rotation=135..-135.01]){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBelt,tpBeltN,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[180f,0f]}
+}
+if(@s[y_rotation=-135..-45]){
+  /summon armor_stand ~0.5 ~0.5 ~0.5 {Tags: [tpBelt,tpBeltE,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[-90f,0f]}
+}
+asat(@e[tag=tpBelt,tag=tpNew]){
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390019}
+  positioned('^1 ^ ^'),if('entity @e[tag=tpBelt,distance=..0.75]'){
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390004}
+  }
+  positioned('^-1 ^ ^'),if('entity @e[tag=tpBelt,distance=..0.75]'){
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390005}
+  }
+  positioned('^1 ^-1 ^'),if('entity @e[tag=tpBelt,distance=..0.75]'){
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390004}
+  }
+  positioned('^-1 ^-1 ^'),if('entity @e[tag=tpBelt,distance=..0.75]'){
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390005}
+  }
+  /execute positioned ^-1 ^ ^ if entity @e[tag=tpBelt,distance=..0.4] positioned ^2 ^ ^ if entity @e[tag=tpBelt,distance=..0.4] run replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390006}
+  positioned('^ ^ ^1'),if('entity @e[tag=tpBeltUpUpper,distance=..0.75]'){
+    /execute positioned ^ ^ ^-1 run tp @s ~ ~-0.49 ~
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390003}
+    /tag @s add tpBeltUpLower
+    /tag @s add tpBeltUp
+  }
+  positioned('^ ^ ^1'),if(!'block ~ ~ ~ air unless entity @e[tag=tpBelt,distance=..0.5]'){
+    /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390003}
+    /execute positioned ^ ^ ^-1 run setblock ~ ~ ~ snow[layers=6]
+    /tag @s add tpBeltUpUpper
+    /tag @s add tpBeltUp
+    positioned('^ ^ ^-2'),asat(@e[tag=tpBelt,tag=!tpBeltUp,distance=..0.75]){
+      /tp @s ~ ~-0.49 ~
+      /replaceitem entity @s armor.head minecraft:iron_pickaxe{CustomModelData:3390003}
+      /tag @s add tpBeltUpLower
+      /tag @s add tpBeltUp
+    }
+  }
+  /scoreboard players set #t2 tpTimer 294
+  /tag @s remove tpNew
+}

@@ -1,0 +1,23 @@
+#file: ./create
+
+if(@s[y_rotation=-45..44.99]){
+  /setblock ~ ~ ~ stone_stairs[facing=south,half=top]
+  /summon armor_stand ~0.5 ~0.25 ~0.5 {Tags: [tpExtractor,tpBeltN,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[180f,0f]}
+}
+if(@s[y_rotation=45..134.99]){
+  /setblock ~ ~ ~ stone_stairs[facing=west,half=top]
+  /summon armor_stand ~0.5 ~0.25 ~0.5 {Tags: [tpExtractor,tpBeltE,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[-90f,0f]}
+}
+if(@s[y_rotation=135..-135.01]){
+  /setblock ~ ~ ~ stone_stairs[facing=north,half=top]
+  /summon armor_stand ~0.5 ~0.25 ~0.5 {Tags: [tpExtractor,tpBeltS,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1}
+}
+if(@s[y_rotation=-135..-45]){
+  /setblock ~ ~ ~ stone_stairs[facing=east,half=top]
+  /summon armor_stand ~0.5 ~0.25 ~0.5 {Tags: [tpExtractor,tpBeltW,tpBeltMove,tpNew],Invisible:1,Marker:1,NoGravity:1,Rotation:[90f,0f]}
+}
+
+asat(@e[tag=tpExtractor,tag=tpNew]){
+  /replaceitem entity @s armor.head minecraft:firework_rocket{CustomModelData:3390020}
+  /tag @s remove tpNew
+}

@@ -1,0 +1,26 @@
+#file: ./exmain
+  /scoreboard players set @s tpE 0
+  /execute store result score @s tpE run data get block ^ ^ ^-1 Items[0].Count
+  if('data block ^ ^ ^-1 Items[{Slot:0b,tag:{placeholder:1}}]'){
+    /scoreboard players set @s tpE 0
+  }
+  as(@s[scores={tpE=1..}]){
+    /tag @s add tpExActive
+  }
+  /execute as @s[tag=tpExActive] positioned ^ ^ ^-1 if entity @e[tag=tpFilter,distance=..0.9] run tag @s add tpExFilter
+    as(@s[tag=tpExFilter]){
+      if('score @s tpE matches ..1'){
+        /tag @s remove tpExActive
+      }
+      /tag @s remove tpExFilter
+    }
+
+  as(@s[tag=tpExActive]){
+    /summon item ^ ^-0.1 ^0.45 {Item:{id:"minecraft:stone",Count:1},Tags:[tpExNew]}
+    /execute as @e[tag=tpExNew,distance=..0.5] run data modify entity @s Item set from block ^ ^ ^-1 Items[0]
+    /execute as @e[tag=tpExNew,distance=..0.5] run data modify entity @s Item.Count set value 1
+    /tag @e[tag=tpExNew,distance=..0.5] remove tpExNew
+    /scoreboard players remove @s tpE 1
+    /execute store result block ^ ^ ^-1 Items[0].Count byte 1 run scoreboard players get @s tpE
+    /tag @s remove tpExActive
+  }

@@ -1,0 +1,43 @@
+#file: ./powered
+/tag @s[tag=tpPowered] remove tpPowered
+if('block ~ ~-1 ~ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ~ ~-1 ~ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_wall_torch[lit=true]'){
+  /tag @s add tpPowered
+}
+if('block ~ ~1 ~ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ~ ~-1 ~ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^1 ^ ^ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^ ^ ^1 minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^ ^ ^-1 minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+if('block ^-1 ^ ^ minecraft:redstone_block'){
+  /tag @s add tpPowered
+}
+for(1,15){
+  if('block ~ ~1 ~ minecraft:redstone_wire[power=$(i)]'){
+    /tag @s add tpPowered
+  }
+}

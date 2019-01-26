@@ -1,0 +1,15 @@
+#file: ./main
+asat(@e[tag=tpExtractor]){
+    // break event
+    if("block ~ ~ ~ air"){
+      /summon minecraft:item ~ ~0.5 ~ {Item:{id:"minecraft:firework_rocket",Count:1,tag:{CustomModelData:3390020,isTekPack:1,HideFlags:6,display:{Name:"{\"text\":\"Extractor\",\"italic\":false,\"color\":\"gray\"}"},Fireworks:{}}}}
+      /kill @e[type=item,distance=..0.8,nbt={Item:{id:"minecraft:stone_stairs"}}]
+      /kill @s
+    }
+    /scoreboard players add @s tpTimer 1
+    /function tpextractor:powered
+    if("score @s tpTimer matches 30.."){
+        /function tpextractor:exmain
+        /scoreboard players reset @s tpTimer
+    }
+}

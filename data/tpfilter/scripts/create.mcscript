@@ -1,0 +1,11 @@
+#file: ./create
+
+if('block ~ ~-1 ~ hopper'){
+  /summon armor_stand ~0.5 ~-1 ~0.4 {ShowArms:1b,HandItems:[{},{}],DisabledSlots:2039583,Pose:{RightArm:[0f,-90f,0f]},Tags: [tpFilter,tpNew],Invisible:1,Marker:1,NoGravity:1}
+  asat(@e[tag=tpFilter,tag=tpNew]){
+    /replaceitem entity @s weapon.mainhand minecraft:firework_rocket{CustomModelData:3390021}
+    /tag @s remove tpNew
+  }
+} else {
+  /summon minecraft:item ~0.5 ~0.5 ~0.5 {Item:{id:"minecraft:firework_rocket",Count:1,tag:{CustomModelData:3390021,isTekPack:1,HideFlags:6,display:{Name:"{\"text\":\"Item Filter\",\"italic\":false,\"color\":\"gray\"}"},Fireworks:{}}}}
+}

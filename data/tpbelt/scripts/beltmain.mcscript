@@ -1,0 +1,43 @@
+#file: ./beltmain
+  /tag @e[type=item,distance=0.01..0.75,tag=!tpBeltItem] add tpBeltItem
+
+as(@s[tag=tpBeltN]){
+  positioned('~ ~ ~-0.35'),asat(@e[type=!player,tag=!tpBeltMove,distance=0.01..0.75]){
+    /data modify entity @s Motion[2] set value -0.08
+  }
+  positioned('~ ~ ~-0.4'),asat(@a[distance=0.01..0.75]){
+    /tp @s ~ ~ ~-0.07
+  }
+}
+as(@s[tag=tpBeltUp]){
+  positioned('^ ^ ^0.35'),asat(@e[type=!player,tag=!tpBelt,distance=0.01..0.75]){
+    /data modify entity @s Motion[1] set value 0.1
+  }
+  positioned('^ ^ ^0.5'),asat(@a[distance=0.01..0.3]){
+    /tp @s ~ ~0.75 ~
+  }
+}
+as(@s[tag=tpBeltS]){
+  positioned('~ ~ ~0.35'),asat(@e[type=!player,tag=!tpBeltMove,distance=0.01..0.75]){
+    /data modify entity @s Motion[2] set value 0.08
+  }
+  positioned('~ ~ ~0.4'),asat(@a[distance=0.01..0.75]){
+    /tp @s ~ ~ ~0.07
+  }
+}
+as(@s[tag=tpBeltW]){
+  positioned('~-0.35 ~ ~'),asat(@e[type=!player,tag=!tpBeltMove,distance=0.01..0.75]){
+    /data modify entity @s Motion[0] set value -0.08
+  }
+  positioned('~-0.4 ~ ~'),asat(@a[distance=0.01..0.75]){
+    /tp @s ~-0.07 ~ ~
+  }
+}
+as(@s[tag=tpBeltE]){
+  positioned('~0.35 ~ ~'),asat(@e[type=!player,tag=!tpBeltMove,distance=0.01..0.75]){
+    /data modify entity @s Motion[0] set value 0.08
+  }
+  positioned('~0.4 ~ ~'),asat(@a[distance=0.01..0.75]){
+    /tp @s ~0.07 ~ ~
+  }
+}

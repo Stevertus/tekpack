@@ -10,4 +10,8 @@ execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390008}}}] as @p run fun
 execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390009}}}] as @p run function tpbreaker:create
 execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390010}}}] as @p run function tphopper:create
 execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390011}}}] as @p run function tpdrill:create
+execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390019}}}] as @p run function tpbelt:create
+execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390020}}}] as @p run function tpextractor:create
+execute as @s[nbt={FireworksItem:{tag:{CustomModelData:3390021}}}] run function tpfilter:create
+
 kill @s
